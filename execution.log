@@ -1,716 +1,91 @@
-2025-01-28 15:05:16,219 - ERROR - Critical error: [Errno 2] No such file or directory: 'config.yaml'
-2025-01-28 17:14:06,040 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:06,045 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:06,157 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:06,159 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:06,302 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:06,304 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:06,455 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:06,456 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:06,566 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:06,567 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:06,568 - INFO - Processed 5/10 | Accuracy: 0.0%
-2025-01-28 17:14:06,687 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:06,690 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:06,797 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:06,798 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:06,915 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:06,917 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:07,038 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:07,040 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:07,148 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
-2025-01-28 17:14:07,149 - ERROR - API Error: Error code: 404 - {'error': {'message': 'The model `gpt-4` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
-2025-01-28 17:14:07,150 - INFO - Processed 10/10 | Accuracy: 0.0%
-2025-01-28 17:14:07,152 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-28 19:14:41,166 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:41,169 - INFO - Retrying request to /chat/completions in 0.456061 seconds
-2025-01-28 19:14:41,766 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:41,768 - INFO - Retrying request to /chat/completions in 0.753364 seconds
-2025-01-28 19:14:42,664 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:42,672 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:42,794 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:42,795 - INFO - Retrying request to /chat/completions in 0.420589 seconds
-2025-01-28 19:14:43,337 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:43,338 - INFO - Retrying request to /chat/completions in 0.914623 seconds
-2025-01-28 19:14:44,372 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:44,374 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:44,496 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:44,497 - INFO - Retrying request to /chat/completions in 0.408209 seconds
-2025-01-28 19:14:45,041 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:45,043 - INFO - Retrying request to /chat/completions in 0.757714 seconds
-2025-01-28 19:14:45,923 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:45,925 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:46,040 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:46,041 - INFO - Retrying request to /chat/completions in 0.404968 seconds
-2025-01-28 19:14:46,572 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:46,573 - INFO - Retrying request to /chat/completions in 0.858034 seconds
-2025-01-28 19:14:47,562 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:47,565 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:47,680 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:47,681 - INFO - Retrying request to /chat/completions in 0.395023 seconds
-2025-01-28 19:14:48,205 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:48,206 - INFO - Retrying request to /chat/completions in 0.787011 seconds
-2025-01-28 19:14:49,123 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:49,124 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:49,125 - INFO - Processed 5/10 | Accuracy: 0.0%
-2025-01-28 19:14:49,255 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:49,257 - INFO - Retrying request to /chat/completions in 0.453882 seconds
-2025-01-28 19:14:49,827 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:49,829 - INFO - Retrying request to /chat/completions in 0.858030 seconds
-2025-01-28 19:14:50,821 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:50,823 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:50,966 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:50,968 - INFO - Retrying request to /chat/completions in 0.456441 seconds
-2025-01-28 19:14:51,554 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:51,555 - INFO - Retrying request to /chat/completions in 0.836526 seconds
-2025-01-28 19:14:52,519 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:52,521 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:52,640 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:52,641 - INFO - Retrying request to /chat/completions in 0.496535 seconds
-2025-01-28 19:14:53,275 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:53,276 - INFO - Retrying request to /chat/completions in 0.991065 seconds
-2025-01-28 19:14:54,388 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:54,389 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:54,514 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:54,515 - INFO - Retrying request to /chat/completions in 0.467272 seconds
-2025-01-28 19:14:55,131 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:55,132 - INFO - Retrying request to /chat/completions in 0.954999 seconds
-2025-01-28 19:14:56,220 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:56,223 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:56,355 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:56,357 - INFO - Retrying request to /chat/completions in 0.418232 seconds
-2025-01-28 19:14:56,893 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:56,894 - INFO - Retrying request to /chat/completions in 0.859905 seconds
-2025-01-28 19:14:57,886 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
-2025-01-28 19:14:57,890 - ERROR - API Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
-2025-01-28 19:14:57,891 - INFO - Processed 10/10 | Accuracy: 0.0%
-2025-01-28 19:14:57,894 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-28 19:47:49,547 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:48:01,603 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:48:13,800 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:48:25,908 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:48:37,808 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:48:37,809 - INFO - Processed 5/10 | Accuracy: 0.0%
-2025-01-28 19:48:49,932 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:49:02,168 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:49:14,175 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:49:25,936 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:49:37,981 - ERROR - Unexpected error: 
-  No API_KEY or ADC found. Please either:
-    - Set the `GOOGLE_API_KEY` environment variable.
-    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
-    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
-2025-01-28 19:49:37,982 - INFO - Processed 10/10 | Accuracy: 0.0%
-2025-01-28 19:49:37,984 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-28 20:03:09,436 - INFO - Processed 5/10 | Accuracy: 0.0%
-2025-01-28 20:03:18,041 - INFO - Processed 10/10 | Accuracy: 0.0%
-2025-01-28 20:03:18,050 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-28 20:36:10,297 - ERROR - Fatal error: Missing config keys: {'prompt:system'}
-2025-01-28 21:21:39,515 - ERROR - Fatal error: Missing config keys: {'prompt:system'}
-2025-01-28 21:24:05,614 - ERROR - Fatal error: Dataset not found: ./data/subset.json
-2025-01-28 21:28:26,835 - ERROR - Error processing item 1: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:28:33,844 - ERROR - Error processing item 2: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:28:42,031 - WARNING - Incorrect format detected in response: Premises:
-1. Every shumpus is a yumpus.
-2. Every worpus is a yimpus.
-3. Every shumpus is a gwompus.
-4. Every tumpus is a boompus.
-5. Every worpus is a shumpus.
-6. Every storpus is a terpus.
-7. Max is a yimpus.
-8. Every shumpus is a rompus.
-9. Every wumpus is a jelpus.
-10. Every boompus is a terpus.
-11. Fae is a tumpus.
-12. Every tumpus is a worpus.
-13. Every rompus is a gorpus.
-14. Every timpus is a impus.
-15. Every jompus is a gerpus.
-16. Every boompus is a rompus.
-17. Fae is a boompus.
-18. Every boompus is a kerpus.
-19. Every zumpus is a bompus.
-20. Max is a rempus.
-21. Every rompus is a kerpus.
-22. Max is a impus.
-23. Every rempus is a impus.
-24. Every wumpus is a yumpus.
-25. Every grimpus is a terpus.
-26. Every tumpus is a jompus.
-27. Every yumpus is a felpus.
-28. Every jelpus is a felpus.
-29. Every shumpus is a felpus.
-30. Every rempus is a timpus.
-31. Every storpus is a jompus.
-32. Every rompus is a storpus.
-33. Every tumpus is a wumpus.
-34. Every wumpus is a jompus.
-35. Every boompus is a worpus.
-36. Fae is a storpus.
-37. Every worpus is a jelpus.
-38. Every grimpus is a felpus.
-39. Every worpus is a yumpus.
-40. Every rempus is a zumpus.
-41. Every kerpus is a grimpus.
+=============== Evaluation Summary ===============
+Accuracy: 80.0%
+Correct: 8/10
 
+=============== Case Studies ===============
+
+CORRECT EXAMPLES:
+Q: Every shumpus is a rempus. Every shumpus is a yimpus. Every terpus is a fompus. Every terpus is a gerpus. Every gerpus is a brimpus. Alex is a rempus. Every rorpus is a scrompus. Every rorpus is a yimpus. Every terpus is a brimpus. Every brimpus is a lempus. Tom is a terpus. Every shumpus is a timpus. Every yimpus is a boompus. Davis is a shumpus. Every gerpus is a lorpus. Davis is a fompus. Every shumpus is a boompus. Every shumpus is a rorpus. Every terpus is a lorpus. Every boompus is a timpus. Every fompus is a yerpus. Tom is a dumpus. Every rempus is a rorpus. Is Tom a lempus or scrompus?
+Expected: Tom is a lempus.
+Parsed: Tom is a lempus.
+Full Response:
 Reasoning:
-1. Fae is a tumpus. (Premise 11)
-2. Every tumpus is a worpus. (Premise 12)
-3. Every worpus is a shumpus. (Premise 5)
-4. Every shumpus is a gwompus. (Premise 3)
+1. Tom is a terpus.
+2. Every terpus is a brimpus.
+3. Every brimpus is a lempus.
+Final Answer: Tom is a lempus.
+----------------------------------------
+Q: Sally is a zhorpus. Every yumpus is a fompus. Every zhorpus is a rempus. Every rompus is a sterpus. Every kerpus is a timpus. Stella is a yumpus. Every zhorpus is a zumpus. Every wumpus is a yumpus. Sally is a rempus. Stella is a wumpus. Every zumpus is a rorpus. Sally is a rompus. Every numpus is a bompus. Every zumpus is a scrompus. Every rempus is a kerpus. Every zumpus is a vumpus. Every timpus is a yerpus. Every rempus is a numpus. Every vumpus is a worpus. Every rompus is a felpus. Every wumpus is a sterpus. Every rompus is a kerpus. Every zumpus is a rempus. Every rempus is a chorpus. Bob is a rorpus. Every wumpus is a fompus. Sally is a kerpus. Every zhorpus is a rompus. Is Sally a fompus or worpus?
+Expected: Sally is a worpus.
+Parsed: Sally is a worpus.
+Full Response:
+Reasoning:
+1. Sally is a zhorpus.
+2. Every zhorpus is a rempus.
+3. Every rempus is a kerpus.
+4. Every kerpus is a timpus.
+5. Every timpus is a yerpus.
+6. Stella is a yumpus.
+7. Every yumpus is a fompus.
+8. Every wumpus is a yumpus.
+9. Stella is a wumpus.
+10. Every zhorpus is a zumpus.
+11. Every zumpus is a rorpus.
+12. Bob is a rorpus.
+13. Every wumpus is a fompus.
+14. Every zhorpus is a rompus.
+15. Every rompus is a felpus.
+16. Every wumpus is a sterpus.
+17. Every rompus is a kerpus.
+18. Every zumpus is a rempus.
+19. Every rempus is a chorpus.
+20. Every zumpus is a vumpus.
+21. Every vumpus is a worpus.
+22. Every rempus is a numpus.
+23. Every numpus is a bompus.
+24. Every zumpus is a scrompus.
+25. Sally is a kerpus.
+26. Every kerpus is a timpus.
+27. Every timpus is a yerpus.
+28. Every yerpus is a worpus.
+Final Answer: Sally is a worpus.
+----------------------------------------
+Q: Every shumpus is a yumpus. Every worpus is a yimpus. Every shumpus is a gwompus. Every tumpus is a boompus. Every worpus is a shumpus. Every storpus is a terpus. Max is a yimpus. Every shumpus is a rompus. Every wumpus is a jelpus. Every boompus is a terpus. Fae is a tumpus. Every tumpus is a worpus. Every rompus is a gorpus. Every timpus is a impus. Every jompus is a gerpus. Every boompus is a rompus. Fae is a boompus. Every boompus is a kerpus. Every zumpus is a bompus. Max is a rempus. Every rompus is a kerpus. Max is a impus. Every rempus is a impus. Every wumpus is a yumpus. Every grimpus is a terpus. Every tumpus is a jompus. Every yumpus is a felpus. Every jelpus is a felpus. Every shumpus is a felpus. Every rempus is a timpus. Every storpus is a jompus. Every rompus is a storpus. Every tumpus is a wumpus. Every wumpus is a jompus. Every boompus is a worpus. Fae is a storpus. Every worpus is a jelpus. Every grimpus is a felpus. Every worpus is a yumpus. Every rempus is a zumpus. Every kerpus is a grimpus. Is Fae a gwompus or bompus?
+Expected: Fae is a gwompus.
+Parsed: Fae is a gwompus.
+Full Response:
+Reasoning:
+1. Fae is a tumpus.
+2. Every tumpus is a worpus.
+3. Every worpus is a shumpus.
+4. Every shumpus is a gwompus.
 5. Therefore, Fae is a gwompus.
 
-Final Answer: Fae
-2025-01-28 21:28:42,032 - ERROR - Error processing item 3: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:28:50,244 - WARNING - Incorrect format detected in response: Premises:
-1. Every fompus is a sterpus.
-2. Every zhorpus is a brimpus.
-3. Every wumpus is a gorpus.
-4. Every rorpus is a shumpus.
-5. Every terpus is a zumpus.
-6. Gabriel is a quimpus.
-7. Every yerpus is a fompus.
-8. Every grimpus is a zhorpus.
-9. Every quimpus is a gorpus.
-10. Every yerpus is a zumpus.
-11. Every boompus is a lempus.
-12. Tom is a zhorpus.
-13. Every zhorpus is a kerpus.
-14. Every rorpus is a zumpus.
-15. Gabriel is a boompus.
-16. Every quimpus is a lempus.
-17. Every yerpus is a terpus.
-18. Every scrompus is a bompus.
-19. Tom is a grimpus.
-20. Every zhorpus is a dumpus.
-21. Every boompus is a rorpus.
-22. Every boompus is a wumpus.
-23. Every terpus is a fompus.
-24. Every terpus is a bompus.
-25. Every scrompus is a storpus.
-26. Every dumpus is a kerpus.
-27. Every lempus is a yerpus.
-28. Every terpus is a rorpus.
-29. Every rorpus is a scrompus.
-30. Alex is a wumpus.
-31. Every lempus is a bompus.
-32. Every gorpus is a sterpus.
-33. Every lempus is a rorpus.
-34. Tom is a felpus.
-35. Gabriel is a lempus.
-36. Every dumpus is a bompus.
-37. Every sterpus is a zumpus.
+Final Answer: Fae is a gwompus.
+----------------------------------------
 
+INCORRECT EXAMPLES:
+Q: Every felpus is a chorpus. Every fompus is a felpus. Every terpus is a zumpus. Every dumpus is a yumpus. Davis is a zhorpus. Every terpus is a felpus. Every terpus is a chorpus. Oliver is a gorpus. Every zhorpus is a tumpus. Every yumpus is a chorpus. Oliver is a impus. Every gwompus is a zhorpus. Every gwompus is a zumpus. Every yumpus is a zhorpus. Every impus is a yerpus. Oliver is a yerpus. Every fompus is a chorpus. Every felpus is a tumpus. Every rorpus is a yerpus. Every dumpus is a fompus. Every jompus is a zumpus. Oliver is a rorpus. Every timpus is a zhorpus. Every dumpus is a tumpus. Every impus is a grimpus. Every timpus is a zumpus. Every timpus is a tumpus. Sally is a tumpus. Every fompus is a timpus. Davis is a yumpus. Every fompus is a jompus. Every grimpus is a tumpus. Every fompus is a terpus. Every timpus is a terpus. Every zhorpus is a rempus. Every timpus is a rempus. Every terpus is a tumpus. Davis is a dumpus. Every rorpus is a impus. Every terpus is a rempus. Every grimpus is a sterpus. Every dumpus is a zhorpus. Davis is a gorpus. Every gwompus is a fompus. Every yumpus is a gwompus. Is Oliver a zumpus or sterpus?
+Expected: Oliver is a sterpus.
+Parsed: Oliver is a zumpus.
+Full Response:
 Reasoning:
-1. Gabriel is a quimpus (Premise 6).
-2. Every quimpus is a gorpus (Premise 9).
-3. Every gorpus is a sterpus (Premise 32).
-4. Every sterpus is a zumpus (Premise 37).
-5. Gabriel is a lempus (Premise 35).
-6. Every lempus is a yerpus (Premise 27).
-7. Every yerpus is a terpus (Premise 17).
-8. Every terpus is a fompus (Premise 23).
-9. Every fompus is a sterpus (Premise 1).
-10. Every sterpus is a z
-2025-01-28 21:28:50,245 - ERROR - Error processing item 4: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:28:56,501 - ERROR - Error processing item 5: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:29:02,616 - ERROR - Error processing item 6: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:29:10,742 - WARNING - Incorrect format detected in response: Premises:
-1. Every felpus is a chorpus.
-2. Every fompus is a felpus.
-3. Every terpus is a zumpus.
-4. Every dumpus is a yumpus.
-5. Davis is a zhorpus.
-6. Every terpus is a felpus.
-7. Every terpus is a chorpus.
-8. Oliver is a gorpus.
-9. Every zhorpus is a tumpus.
-10. Every yumpus is a chorpus.
-11. Oliver is a impus.
-12. Every gwompus is a zhorpus.
-13. Every gwompus is a zumpus.
-14. Every yumpus is a zhorpus.
-15. Every impus is a yerpus.
-16. Oliver is a yerpus.
-17. Every fompus is a chorpus.
-18. Every felpus is a tumpus.
-19. Every rorpus is a yerpus.
-20. Every dumpus is a fompus.
-21. Every jompus is a zumpus.
-22. Oliver is a rorpus.
-23. Every timpus is a zhorpus.
-24. Every dumpus is a tumpus.
-25. Every impus is a grimpus.
-26. Every timpus is a zumpus.
-27. Every timpus is a tumpus.
-28. Sally is a tumpus.
-29. Every fompus is a timpus.
-30. Davis is a yumpus.
-31. Every fompus is a jompus.
-32. Every grimpus is a tumpus.
-33. Every fompus is a terpus.
-34. Every timpus is a terpus.
-35. Every zhorpus is a rempus.
-36. Every timpus is a rempus.
-37. Every terpus is a tumpus.
-38. Davis is a dumpus.
-39. Every rorpus is a impus.
-40. Every terpus is a rempus.
-41. Every grimpus is a sterpus.
-42. Every dumpus is a zhorpus.
-43. Davis is a gorpus.
-44. Every gwompus is a fompus.
-45. Every yumpus is a gwompus.
-
-Reasoning:
-1. Oliver is a gorpus. (Given, premise 8)
-2. Every gorpus is a zhorpus. (Premise 5)
-3. Every zhorpus is a tumpus. (Premise
-2025-01-28 21:29:10,743 - ERROR - Error processing item 7: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:29:17,402 - ERROR - Error processing item 8: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:29:25,683 - WARNING - Incorrect format detected in response: Premises:
-1. Tom is a zhorpus.
-2. Every impus is a sterpus.
-3. Every yerpus is a shumpus.
-4. Every wumpus is a shumpus.
-5. Tom is a bompus.
-6. Every worpus is a zumpus.
-7. Every rompus is a jelpus.
-8. Every rempus is a zhorpus.
-9. Every bompus is a impus.
-10. Every yerpus is a bompus.
-11. Every zumpus is a tumpus.
-12. Every bompus is a sterpus.
-13. Every impus is a chorpus.
-14. Every zumpus is a lempus.
-15. Every rempus is a jelpus.
-16. Every wumpus is a jelpus.
-17. Every rempus is a yerpus.
-18. Every yerpus is a gerpus.
-19. Every gerpus is a bompus.
-20. Every terpus is a gorpus.
-21. Eva is a gwompus.
-22. Every gorpus is a numpus.
-23. Every rompus is a terpus.
-24. Every wumpus is a sterpus.
-25. Every wumpus is a yerpus.
-26. Every yerpus is a chorpus.
-27. Every shumpus is a bompus.
-28. Every wumpus is a bompus.
-29. Every zhorpus is a gerpus.
-30. Every worpus is a gwompus.
-31. Every wumpus is a zhorpus.
-32. Eva is a rompus.
-33. Tom is a rempus.
-34. Eva is a worpus.
-35. Every zhorpus is a lempus.
-36. Every shumpus is a impus.
-37. Every rempus is a wumpus.
-38. Every shumpus is a gerpus.
-39. Every worpus is a jelpus.
-40. Every zhorpus is a bompus.
-41. Every rompus is a worpus.
-42. Every jelpus is a rorpus.
-
-Reasoning:
-1. Eva is a rompus. (Given: 32)
-2. Every rompus is a terpus. (Given: 23)
-3. Every terpus is a gorpus. (Given: 20)
-4. Every gorpus is a numpus. (Given: 22)
-5. Therefore, Eva is a numpus.
-
-Final
-2025-01-28 21:29:25,684 - ERROR - Error processing item 9: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:29:33,846 - WARNING - Incorrect format detected in response: Premises:
-1. Every rorpus is a numpus.
-2. Every chorpus is a storpus.
-3. Every shumpus is a timpus.
-4. Every quimpus is a worpus.
-5. Every zhorpus is a chorpus.
-6. Every gerpus is a fompus.
-7. Every tumpus is a bompus.
-8. Every tumpus is a terpus.
-9. Every jelpus is a fompus.
-10. Every boompus is a numpus.
-11. Every storpus is a shumpus.
-12. Every chorpus is a numpus.
-13. Every rorpus is a timpus.
-14. Sally is a rempus.
-15. Every boompus is a quimpus.
-16. Every timpus is a gorpus.
-17. Every rorpus is a chorpus.
-18. Every rempus is a tumpus.
-19. Every tumpus is a quimpus.
-20. Sally is a terpus.
-21. Every chorpus is a vumpus.
-22. Every gerpus is a terpus.
-23. Every jelpus is a gerpus.
-24. Every gerpus is a dumpus.
-25. Every fompus is a terpus.
-26. Every zhorpus is a storpus.
-27. Every chorpus is a sterpus.
-28. Every storpus is a hilpus.
-29. Rex is a zhorpus.
-30. Every jompus is a quimpus.
-31. Every tumpus is a gerpus.
-32. Every tumpus is a gorpus.
-33. Every tumpus is a numpus.
-34. Every wumpus is a shumpus.
-35. Every fompus is a dumpus.
-36. Every chorpus is a shumpus.
-37. Every rempus is a jompus.
-38. Every jompus is a terpus.
-39. Every rorpus is a shumpus.
-40. Every sterpus is a timpus.
-41. Every zhorpus is a rorpus.
-42. Every rempus is a jelpus.
-43. Sally is a quimpus.
-44. Every rorpus is a storpus.
-45. Every wumpus is a vumpus.
-46. Rex is a wumpus.
-47. Every storpus is a zumpus.
-48. Every tumpus is a boompus.
-49. Every
-2025-01-28 21:29:33,847 - ERROR - Error processing item 10: 'ProsQAEvaluator' object has no attribute '_update_case_studies'
-2025-01-28 21:29:33,847 - ERROR - Fatal error: 'ProsQAEvaluator' object has no attribute '_compile_report'
-2025-01-28 21:34:21,908 - ERROR - Unexpected error: ("Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 3. The candidate's safety_ratings are: [category: HARM_CATEGORY_SEXUALLY_EXPLICIT\nprobability: NEGLIGIBLE\n, category: HARM_CATEGORY_HATE_SPEECH\nprobability: NEGLIGIBLE\n, category: HARM_CATEGORY_HARASSMENT\nprobability: MEDIUM\n, category: HARM_CATEGORY_DANGEROUS_CONTENT\nprobability: NEGLIGIBLE\n].", [category: HARM_CATEGORY_SEXUALLY_EXPLICIT
-probability: NEGLIGIBLE
-, category: HARM_CATEGORY_HATE_SPEECH
-probability: NEGLIGIBLE
-, category: HARM_CATEGORY_HARASSMENT
-probability: MEDIUM
-, category: HARM_CATEGORY_DANGEROUS_CONTENT
-probability: NEGLIGIBLE
-])
-2025-01-28 21:34:29,788 - INFO - Progress: 5/10 | Accuracy: 20.0%
-2025-01-28 21:34:42,982 - INFO - Progress: 10/10 | Accuracy: 10.0%
-2025-01-28 21:34:42,983 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-28 21:52:56,230 - ERROR - Unexpected error: ("Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 3. The candidate's safety_ratings are: [category: HARM_CATEGORY_SEXUALLY_EXPLICIT\nprobability: NEGLIGIBLE\n, category: HARM_CATEGORY_HATE_SPEECH\nprobability: NEGLIGIBLE\n, category: HARM_CATEGORY_HARASSMENT\nprobability: MEDIUM\n, category: HARM_CATEGORY_DANGEROUS_CONTENT\nprobability: NEGLIGIBLE\n].", [category: HARM_CATEGORY_SEXUALLY_EXPLICIT
-probability: NEGLIGIBLE
-, category: HARM_CATEGORY_HATE_SPEECH
-probability: NEGLIGIBLE
-, category: HARM_CATEGORY_HARASSMENT
-probability: MEDIUM
-, category: HARM_CATEGORY_DANGEROUS_CONTENT
-probability: NEGLIGIBLE
-])
-2025-01-28 21:53:01,355 - INFO - Processed 5/10 | Accuracy: 20.0%
-2025-01-28 21:53:10,446 - INFO - Processed 10/10 | Accuracy: 20.0%
-2025-01-28 21:53:10,449 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-28 22:02:31,279 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:02:36,116 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:02:40,877 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:02:45,755 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:02:51,232 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:02:57,004 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:02,901 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:08,581 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:14,317 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:19,988 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:25,630 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:31,375 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:37,044 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:42,830 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:48,507 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:03:54,336 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:00,044 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:05,781 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:11,543 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:17,239 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:22,903 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:28,907 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:34,656 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:40,252 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:45,920 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:45,920 - INFO - Processed 5/10 | Accuracy: 0.0%
-2025-01-28 22:04:51,599 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:04:57,278 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:02,900 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:08,586 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:14,246 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:19,870 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:25,522 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:31,190 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:36,848 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:42,550 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:48,407 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:54,149 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:05:59,799 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:05,486 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:11,161 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:16,765 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:22,434 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:28,152 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:33,825 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:39,827 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:45,498 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:51,158 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:06:56,853 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:07:02,558 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:07:08,270 - ERROR - Unexpected error: Unknown field for Candidate: parts
-2025-01-28 22:07:08,271 - INFO - Processed 10/10 | Accuracy: 0.0%
-2025-01-28 22:07:08,274 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-29 08:48:23,277 - INFO - Processed 5/10 | Accuracy: 20.0%
-2025-01-29 08:50:56,140 - INFO - Processed 10/10 | Accuracy: 10.0%
-2025-01-29 08:50:56,143 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-29 09:18:01,376 - INFO - Processed 5/10 | Accuracy: 20.0%
-2025-01-29 09:20:33,257 - INFO - Processed 10/10 | Accuracy: 10.0%
-2025-01-29 09:20:33,262 - INFO - Report saved to ./results/evaluation_report
-2025-01-29 09:33:58,228 - INFO - Processed 5/10 | Accuracy: 0.0%
-2025-01-29 09:34:07,140 - INFO - Processed 10/10 | Accuracy: 0.0%
-2025-01-29 09:34:07,147 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-29 09:47:20,880 - INFO - Processed 5/10 | Accuracy: 100.0%
-2025-01-29 09:47:28,993 - INFO - Processed 10/10 | Accuracy: 80.0%
-2025-01-29 09:47:28,996 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-29 10:32:11,242 - INFO - Self-consistency result: 'Tom is a lempus.' (appeared 7/7 times)
-2025-01-29 10:32:32,286 - ERROR - Unexpected error: list index out of range
-2025-01-29 10:32:35,107 - INFO - Self-consistency result: 'Sally is a worpus.' (appeared 6/7 times)
-2025-01-29 10:32:38,524 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:40,334 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:40,439 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:40,540 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:40,541 - INFO - Self-consistency result: 'Fae is a gwompus.' (appeared 3/7 times)
-2025-01-29 10:32:40,625 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:40,700 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:40,769 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:40,842 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:40,951 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,043 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,121 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,121 - WARNING - No valid answer found across multiple trials.
-2025-01-29 10:32:41,122 - WARNING - WRONG ANSWER: Expected 'Gabriel is a storpus.', but got 'Unknown'
-2025-01-29 10:32:41,122 - WARNING - Full Response:
-Unknown
-2025-01-29 10:32:41,200 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,274 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,341 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,414 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,488 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,560 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,623 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,623 - WARNING - No valid answer found across multiple trials.
-2025-01-29 10:32:41,624 - WARNING - WRONG ANSWER: Expected 'Oliver is a tumpus.', but got 'Unknown'
-2025-01-29 10:32:41,624 - WARNING - Full Response:
-Unknown
-2025-01-29 10:32:41,624 - INFO - Processed 5/10 | Accuracy: 60.0%
-2025-01-29 10:32:41,694 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,765 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,851 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,920 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:41,985 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,077 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,155 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,155 - WARNING - No valid answer found across multiple trials.
-2025-01-29 10:32:42,155 - WARNING - WRONG ANSWER: Expected 'Sally is a bompus.', but got 'Unknown'
-2025-01-29 10:32:42,155 - WARNING - Full Response:
-Unknown
-2025-01-29 10:32:42,225 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,284 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,374 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,447 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,512 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,592 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,657 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,657 - WARNING - No valid answer found across multiple trials.
-2025-01-29 10:32:42,657 - WARNING - WRONG ANSWER: Expected 'Oliver is a sterpus.', but got 'Unknown'
-2025-01-29 10:32:42,657 - WARNING - Full Response:
-Unknown
-2025-01-29 10:32:42,750 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,826 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:42,902 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,003 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,105 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,179 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,279 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,279 - WARNING - No valid answer found across multiple trials.
-2025-01-29 10:32:43,280 - WARNING - WRONG ANSWER: Expected 'Jack is a timpus.', but got 'Unknown'
-2025-01-29 10:32:43,280 - WARNING - Full Response:
-Unknown
-2025-01-29 10:32:43,349 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,418 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,497 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,658 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,726 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,812 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,877 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:43,878 - WARNING - No valid answer found across multiple trials.
-2025-01-29 10:32:43,878 - WARNING - WRONG ANSWER: Expected 'Eva is a numpus.', but got 'Unknown'
-2025-01-29 10:32:43,878 - WARNING - Full Response:
-Unknown
-2025-01-29 10:32:43,949 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:44,021 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:44,118 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:44,225 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:44,306 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:44,388 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:44,470 - ERROR - API Error: 429 Resource has been exhausted (e.g. check quota).
-2025-01-29 10:32:44,470 - WARNING - No valid answer found across multiple trials.
-2025-01-29 10:32:44,470 - WARNING - WRONG ANSWER: Expected 'Sally is a dumpus.', but got 'Unknown'
-2025-01-29 10:32:44,470 - WARNING - Full Response:
-Unknown
-2025-01-29 10:32:44,470 - INFO - Processed 10/10 | Accuracy: 30.0%
-2025-01-29 10:32:44,473 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-29 10:51:04,296 - ERROR - Unexpected error: list index out of range
-2025-01-29 10:51:04,299 - WARNING - WRONG ANSWER: Expected 'Sally is a worpus.', but got 'Unknown'
-2025-01-29 10:51:04,299 - WARNING - Full Response:
-None
-2025-01-29 10:51:11,051 - WARNING - WRONG ANSWER: Expected 'Oliver is a tumpus.', but got 'Oliver is a shumpus.'
-2025-01-29 10:51:11,052 - WARNING - Full Response:
-Reasoning:
-1. Oliver is a yerpus.
-2. Every yerpus is a gerpus.
-3. Every gerpus is a terpus.
-4. Every terpus is a felpus.
-5. Every felpus is a scrompus.
-6. Every scrompus is a yumpus.
-7. Every yumpus is a boompus.
-8. Every boompus is a zumpus.
-9. Every zumpus is a shumpus.
-10. Sally is a dumpus.
-11. Every dumpus is a hilpus.
-12. Every worpus is a dumpus.
-13. Sally is a worpus.
-14. Every grimpus is a tumpus.
-Final Answer: Oliver is a shumpus.
-2025-01-29 10:51:11,052 - INFO - Processed 5/10 | Accuracy: 60.0%
-2025-01-29 10:51:12,414 - ERROR - Unexpected error: list index out of range
-2025-01-29 10:51:12,415 - WARNING - WRONG ANSWER: Expected 'Sally is a bompus.', but got 'Unknown'
-2025-01-29 10:51:12,415 - WARNING - Full Response:
-None
-2025-01-29 10:51:14,136 - ERROR - Unexpected error: list index out of range
-2025-01-29 10:51:14,137 - WARNING - WRONG ANSWER: Expected 'Oliver is a sterpus.', but got 'Unknown'
-2025-01-29 10:51:14,137 - WARNING - Full Response:
-None
-2025-01-29 10:51:18,861 - WARNING - WRONG ANSWER: Expected 'Sally is a dumpus.', but got 'Sally is a numpus.'
-2025-01-29 10:51:18,862 - WARNING - Full Response:
-Reasoning:
-1. Sally is a rempus.
-2. Every rempus is a tumpus.
-3. Every tumpus is a quimpus.
-4. Every quimpus is a worpus.
-5. Every worpus is a rorpus.
-6. Every rorpus is a chorpus.
-7. Every chorpus is a numpus.
-Final Answer: Sally is a numpus.
-2025-01-29 10:51:18,862 - INFO - Processed 10/10 | Accuracy: 50.0%
-2025-01-29 10:51:18,867 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-29 12:07:41,662 - ERROR - Unexpected error: list index out of range
-2025-01-29 12:07:41,664 - WARNING - WRONG ANSWER: Expected 'Sally is a worpus.', but got 'Unknown'
-2025-01-29 12:07:41,664 - WARNING - Full Response:
-None
-2025-01-29 12:07:44,894 - WARNING - WRONG ANSWER: Expected 'Gabriel is a storpus.', but got 'Gabriel is a sterpus.'
-2025-01-29 12:07:44,894 - WARNING - Full Response:
-Reasoning:
-1. Every yerpus is a fompus.
-2. Every fompus is a sterpus.
-3. Therefore, every yerpus is a sterpus.
-4. Gabriel is a yerpus.
-5. Therefore, Gabriel is a sterpus.
-Final Answer: Gabriel is a sterpus.
-2025-01-29 12:07:49,029 - WARNING - WRONG ANSWER: Expected 'Oliver is a tumpus.', but got 'Oliver is a hilpus.'
-2025-01-29 12:07:49,030 - WARNING - Full Response:
-Reasoning:
-1. Oliver is a yerpus.
-2. Every yerpus is a gerpus.
-3. Every gerpus is a terpus.
-4. Every terpus is a felpus.
-5. Every terpus is a lempus.
-6. Sally is a dumpus.
-7. Every dumpus is a hilpus.
-8. Every dumpus is a worpus.
-9. Every worpus is a hilpus.
-10. Every grimpus is a tumpus.
-11. Every boompus is a grimpus.
-12. Every boompus is a zumpus.
-13. Oliver is a zumpus.
-14. Every zumpus is a shumpus.
-15. Every yerpus is a boompus.
-16. Every yerpus is a scrompus.
-17. Every scrompus is a yumpus.
-18. Every yumpus is a boompus.
-19. Every boompus is a rorpus.
-20. Every yerpus is a sterpus.
-21. Every yerpus is a quimpus.
-22. Every chorpus is a yerpus.
-Final Answer: Oliver is a hilpus.
-2025-01-29 12:07:49,030 - INFO - Processed 5/10 | Accuracy: 40.0%
-2025-01-29 12:07:50,414 - ERROR - Unexpected error: list index out of range
-2025-01-29 12:07:50,414 - WARNING - WRONG ANSWER: Expected 'Sally is a bompus.', but got 'Unknown'
-2025-01-29 12:07:50,414 - WARNING - Full Response:
-None
-2025-01-29 12:07:51,976 - WARNING - WRONG ANSWER: Expected 'Oliver is a sterpus.', but got 'Oliver is a zumpus.'
-2025-01-29 12:07:51,977 - WARNING - Full Response:
-Reasoning:
-1. Every terpus is a zumpus.
-2. Oliver is a terpus.
-3. Therefore, Oliver is a zumpus.
+1. Oliver is a gorpus.
+2. Every gorpus is a zhorpus.
+3. Every zhorpus is a tumpus.
+4. Every tumpus is a zumpus.
 Final Answer: Oliver is a zumpus.
-2025-01-29 12:07:57,344 - WARNING - WRONG ANSWER: Expected 'Sally is a dumpus.', but got 'Sally is a vumpus.'
-2025-01-29 12:07:57,345 - WARNING - Full Response:
+----------------------------------------
+Q: Every rorpus is a numpus. Every chorpus is a storpus. Every shumpus is a timpus. Every quimpus is a worpus. Every zhorpus is a chorpus. Every gerpus is a fompus. Every tumpus is a bompus. Every tumpus is a terpus. Every jelpus is a fompus. Every boompus is a numpus. Every storpus is a shumpus. Every chorpus is a numpus. Every rorpus is a timpus. Sally is a rempus. Every boompus is a quimpus. Every timpus is a gorpus. Every rorpus is a chorpus. Every rempus is a tumpus. Every tumpus is a quimpus. Sally is a terpus. Every chorpus is a vumpus. Every gerpus is a terpus. Every jelpus is a gerpus. Every gerpus is a dumpus. Every fompus is a terpus. Every zhorpus is a storpus. Every chorpus is a sterpus. Every storpus is a hilpus. Rex is a zhorpus. Every jompus is a quimpus. Every tumpus is a gerpus. Every tumpus is a gorpus. Every tumpus is a numpus. Every wumpus is a shumpus. Every fompus is a dumpus. Every chorpus is a shumpus. Every rempus is a jompus. Every jompus is a terpus. Every rorpus is a shumpus. Every sterpus is a timpus. Every zhorpus is a rorpus. Every rempus is a jelpus. Sally is a quimpus. Every rorpus is a storpus. Every wumpus is a vumpus. Rex is a wumpus. Every storpus is a zumpus. Every tumpus is a boompus. Every jelpus is a zumpus. Is Sally a vumpus or dumpus?
+Expected: Sally is a dumpus.
+Parsed: Sally is a numpus
+Full Response:
 Reasoning:
 1. Sally is a rempus.
 2. Every rempus is a tumpus.
 3. Every tumpus is a quimpus.
 4. Every quimpus is a worpus.
-5. Every worpus is a rorpus.
-6. Every rorpus is a chorpus.
-7. Every chorpus is a vumpus.
-Final Answer: Sally is a vumpus.
-2025-01-29 12:07:57,345 - INFO - Processed 10/10 | Accuracy: 40.0%
-2025-01-29 12:07:57,349 - INFO - Report saved to ./results/evaluation_report.json
-2025-01-29 12:28:12,796 - INFO - Processed 5/10 | Accuracy: 20.0%
-2025-01-29 12:28:46,230 - INFO - Processed 10/10 | Accuracy: 20.0%
-2025-01-29 12:28:46,234 - INFO - Reports saved to ./results/evaluation_report.json.*
-2025-01-29 12:50:10,310 - INFO - Processed 5/10 | Accuracy: 20.0% | Valid Reasoning: 5/5
-2025-01-29 12:50:50,102 - INFO - Processed 10/10 | Accuracy: 10.0% | Valid Reasoning: 10/10
-2025-01-29 12:50:50,105 - INFO - Reports saved to ./results/evaluation_report.*
-2025-01-29 13:32:03,817 - INFO - Processed 5/10 | Current Accuracy: 80.0%
-2025-01-29 13:32:19,425 - WARNING - Answer parsing failed for output: Reasoning:
-1. Every rorpus is a numpus.
-2. Every chorpus is a storpus.
-3. Every shumpus is a timpus.
-4. Every quimpus is a worpus.
-5. Every zhorpus is a chorpus.
-6. Every gerpus is a fompus.
-7. Every ...
-2025-01-29 13:32:19,425 - INFO - Processed 10/10 | Current Accuracy: 60.0%
-2025-01-29 13:32:19,429 - INFO - Reports saved to ./results/evaluation_report.*
-2025-01-29 20:05:27,996 - INFO - Processed 5/10 | Accuracy: 100.0%
-2025-01-29 20:05:36,019 - INFO - Processed 10/10 | Accuracy: 80.0%
-2025-01-29 20:05:36,024 - INFO - Report saved to ./results/evaluation_report.json
+5. Every worpus is a numpus.
+6. Therefore, Sally is a numpus.
+Final Answer: Sally is a numpus
+----------------------------------------
