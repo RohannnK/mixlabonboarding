@@ -1,0 +1,280 @@
+PROSQA EVALUATION REPORT
+==================================================
+Raw Accuracy: 60.0%
+Adjusted Accuracy: 60.0%
+Parsing Success: 100.0%
+
+CORRECT CASE STUDIES:
+
+Question: Every shumpus is a rempus. Every shumpus is a yimpus. Every terpus is a fompus. Every terpus is a gerpus. Every gerpus is a brimpus. Alex is a rempus. Every rorpus is a scrompus. Every rorpus is a yimpus. Every terpus is a brimpus. Every brimpus is a lempus. Tom is a terpus. Every shumpus is a timpus. Every yimpus is a boompus. Davis is a shumpus. Every gerpus is a lorpus. Davis is a fompus. Every shumpus is a boompus. Every shumpus is a rorpus. Every terpus is a lorpus. Every boompus is a timpus. Every fompus is a yerpus. Tom is a dumpus. Every rempus is a rorpus. Is Tom a lempus or scrompus?
+Expected: tom is a lempus
+Model Output:
+1. Premise 1: Every shumpus is a rempus
+2. Premise 2: Every shumpus is a yimpus
+3. Premise 3: Every terpus is a fompus
+4. Premise 4: Every terpus is a gerpus
+5. Premise 5: Every gerpus is a brimpus
+6. Premise 6: Alex is a rempus
+7. Premise 7: Every rorpus is a scrompus
+8. Premise 8: Every rorpus is a yimpus
+9. Premise 9: Every terpus is a brimpus
+10. Premise 10: Every brimpus is a lempus
+11. Premise 11: Tom is a terpus
+12. Premise 12: Every shumpus is a timpus
+13. Premise 13: Every yimpus is a boompus
+14. Premise 14: Davis is a shumpus
+15. Premise 15: Every gerpus is a lorpus
+16. Premise 16: Davis is a fompus
+17. Premise 17: Every shumpus is a boompus
+18. Premise 18: Every shumpus is a rorpus
+19. Premise 19: Every terpus is a lorpus
+20. Premise 20: Every boompus is a timpus
+21. Premise 21: Every fompus is a yerpus
+22. Premise 22: Tom is a dumpus
+23. Premise 23: Every rempus is a rorpus
+24. Deduction 1: Alex is a yimpus (1 + 2)
+25. Deduction 2: Tom is a gerpus (4 + 11)
+26. Deduction 3: Tom is a brimpus (5 + 25)
+27. Deduction 4: Tom is a lempus (10 + 26)
+28. Deduction 5: Davis is a yimpus (2 + 14)
+29. Deduction 6: Davis is a boompus (13 + 28)
+30. Deduction 7: Davis is a rorpus (18 + 29)
+31. Deduction 8: Tom is a lorpus (19 + 25)
+32. Deduction 9: Tom is a timpus (20 + 31)
+33. Deduction 10: Davis is a yerpus (21 + 16)
+Final Answer: Tom is a lempus
+Parsed Answer: Tom is a lempus
+------------------------------------------------------------
+
+Question: Every shumpus is a yumpus. Every worpus is a yimpus. Every shumpus is a gwompus. Every tumpus is a boompus. Every worpus is a shumpus. Every storpus is a terpus. Max is a yimpus. Every shumpus is a rompus. Every wumpus is a jelpus. Every boompus is a terpus. Fae is a tumpus. Every tumpus is a worpus. Every rompus is a gorpus. Every timpus is a impus. Every jompus is a gerpus. Every boompus is a rompus. Fae is a boompus. Every boompus is a kerpus. Every zumpus is a bompus. Max is a rempus. Every rompus is a kerpus. Max is a impus. Every rempus is a impus. Every wumpus is a yumpus. Every grimpus is a terpus. Every tumpus is a jompus. Every yumpus is a felpus. Every jelpus is a felpus. Every shumpus is a felpus. Every rempus is a timpus. Every storpus is a jompus. Every rompus is a storpus. Every tumpus is a wumpus. Every wumpus is a jompus. Every boompus is a worpus. Fae is a storpus. Every worpus is a jelpus. Every grimpus is a felpus. Every worpus is a yumpus. Every rempus is a zumpus. Every kerpus is a grimpus. Is Fae a gwompus or bompus?
+Expected: fae is a gwompus
+Model Output:
+1. Premise 1: Every shumpus is a yumpus
+2. Premise 2: Every worpus is a yimpus
+3. Premise 3: Every shumpus is a gwompus
+4. Premise 4: Every tumpus is a boompus
+5. Premise 5: Every worpus is a shumpus
+6. Premise 6: Every storpus is a terpus
+7. Premise 7: Max is a yimpus
+8. Premise 8: Every shumpus is a rompus
+9. Premise 9: Every wumpus is a jelpus
+10. Premise 10: Every boompus is a terpus
+11. Premise 11: Fae is a tumpus
+12. Premise 12: Every tumpus is a worpus
+13. Premise 13: Every rompus is a gorpus
+14. Premise 14: Every timpus is a impus
+15. Premise 15: Every jompus is a gerpus
+16. Premise 16: Every boompus is a rompus
+17. Premise 17: Fae is a boompus
+18. Premise 18: Every boompus is a kerpus
+19. Premise 19: Every zumpus is a bompus
+20. Premise 20: Max is a rempus
+21. Premise 21: Every rompus is a kerpus
+22. Premise 22: Max is a impus
+23. Premise 23: Every rempus is a impus
+24. Premise 24: Every wumpus is a yumpus
+25. Premise 25: Every grimpus is a terpus
+26. Premise 26: Every tumpus is a jompus
+27. Premise 27: Every yumpus is a felpus
+28. Premise 28: Every jelpus is a felpus
+29. Premise 29: Every shumpus is a felpus
+30. Premise 30: Every rempus is a timpus
+31. Premise 31: Every storpus is a jompus
+32. Premise 32: Every rompus is a storpus
+33. Premise 33: Every tumpus is a wumpus
+34. Premise 34: Every wumpus is a jompus
+35. Premise 35: Every boompus is a worpus
+36. Premise 36: Fae is a storpus
+37. Premise 37: Every worpus is a jelpus
+38. Premise 38: Every grimpus is a felpus
+39. Premise 39: Every worpus is a yumpus
+40. Premise 40: Every rempus is a zumpus
+41. Premise 41: Every kerpus is a grimpus
+42. Deduction 1: Fae is a worpus (11 + 12)
+43. Deduction 2: Fae is a yumpus (42 + 39)
+44. Deduction 3: Fae is a shumpus (43 + 1)
+45. Deduction 4: Fae is a gwompus (44 + 3)
+46. Deduction 5: Fae is a rompus (44 + 8)
+47. Deduction 6: Fae is a kerpus (46 + 21)
+48. Deduction 7: Fae is a grimpus (47 + 41)
+49. Deduction 8: Fae is a felpus (48 + 38)
+50. Deduction 9: Fae is a terpus (49 + 25)
+51. Deduction 10: Fae is a boompus (44 + 16)
+Final Answer: Fae is a gwompus
+Parsed Answer: Fae is a gwompus
+------------------------------------------------------------
+
+Question: Every fompus is a sterpus. Every zhorpus is a brimpus. Every wumpus is a gorpus. Every rorpus is a shumpus. Every terpus is a zumpus. Gabriel is a quimpus. Every yerpus is a fompus. Every grimpus is a zhorpus. Every quimpus is a gorpus. Every yerpus is a zumpus. Every boompus is a lempus. Tom is a zhorpus. Every zhorpus is a kerpus. Every rorpus is a zumpus. Gabriel is a boompus. Every quimpus is a lempus. Every yerpus is a terpus. Every scrompus is a bompus. Tom is a grimpus. Every zhorpus is a dumpus. Every boompus is a rorpus. Every boompus is a wumpus. Every terpus is a fompus. Every terpus is a bompus. Every scrompus is a storpus. Every dumpus is a kerpus. Every lempus is a yerpus. Every terpus is a rorpus. Every rorpus is a scrompus. Alex is a wumpus. Every lempus is a bompus. Every gorpus is a sterpus. Every lempus is a rorpus. Tom is a felpus. Gabriel is a lempus. Every dumpus is a bompus. Every sterpus is a zumpus. Is Gabriel a storpus or felpus?
+Expected: gabriel is a storpus
+Model Output:
+1. Premise 1: Every fompus is a sterpus
+2. Premise 2: Every zhorpus is a brimpus
+3. Premise 3: Every wumpus is a gorpus
+4. Premise 4: Every rorpus is a shumpus
+5. Premise 5: Every terpus is a zumpus
+6. Premise 6: Gabriel is a quimpus
+7. Premise 7: Every yerpus is a fompus
+8. Premise 8: Every grimpus is a zhorpus
+9. Premise 9: Every quimpus is a gorpus
+10. Premise 10: Every yerpus is a zumpus
+11. Premise 11: Every boompus is a lempus
+12. Premise 12: Tom is a zhorpus
+13. Premise 13: Every zhorpus is a kerpus
+14. Premise 14: Every rorpus is a zumpus
+15. Premise 15: Gabriel is a boompus
+16. Premise 16: Every quimpus is a lempus
+17. Premise 17: Every yerpus is a terpus
+18. Premise 18: Every scrompus is a bompus
+19. Premise 19: Tom is a grimpus
+20. Premise 20: Every zhorpus is a dumpus
+21. Premise 21: Every boompus is a rorpus
+22. Premise 22: Every boompus is a wumpus
+23. Premise 23: Every terpus is a fompus
+24. Premise 24: Every terpus is a bompus
+25. Premise 25: Every scrompus is a storpus
+26. Premise 26: Every dumpus is a kerpus
+27. Premise 27: Every lempus is a yerpus
+28. Premise 28: Every terpus is a rorpus
+29. Premise 29: Every rorpus is a scrompus
+30. Premise 30: Alex is a wumpus
+31. Premise 31: Every lempus is a bompus
+32. Premise 32: Every gorpus is a sterpus
+33. Premise 33: Every lempus is a rorpus
+34. Premise 34: Tom is a felpus
+35. Premise 35: Gabriel is a lempus
+36. Premise 36: Every dumpus is a bompus
+37. Premise 37: Every sterpus is a zumpus
+38. Deduction 1: Gabriel is a sterpus because Premise 1 + Premise 7
+39. Deduction 2: Gabriel is a zumpus because Premise 38 + Premise 37
+Final Answer: Gabriel is a storpus
+Parsed Answer: Gabriel is a storpus
+------------------------------------------------------------
+INCORRECT CASE STUDIES:
+
+Question: Sally is a zhorpus. Every yumpus is a fompus. Every zhorpus is a rempus. Every rompus is a sterpus. Every kerpus is a timpus. Stella is a yumpus. Every zhorpus is a zumpus. Every wumpus is a yumpus. Sally is a rempus. Stella is a wumpus. Every zumpus is a rorpus. Sally is a rompus. Every numpus is a bompus. Every zumpus is a scrompus. Every rempus is a kerpus. Every zumpus is a vumpus. Every timpus is a yerpus. Every rempus is a numpus. Every vumpus is a worpus. Every rompus is a felpus. Every wumpus is a sterpus. Every rompus is a kerpus. Every zumpus is a rempus. Every rempus is a chorpus. Bob is a rorpus. Every wumpus is a fompus. Sally is a kerpus. Every zhorpus is a rompus. Is Sally a fompus or worpus?
+Expected: sally is a worpus
+Model Output:
+1. Premise 1: Every yumpus is a fompus
+2. Premise 2: Every zhorpus is a rempus
+3. Premise 3: Every rompus is a sterpus
+4. Premise 4: Every kerpus is a timpus
+5. Premise 5: Every zhorpus is a zumpus
+6. Premise 6: Every wumpus is a yumpus
+7. Premise 7: Every zumpus is a rorpus
+8. Premise 8: Every rempus is a kerpus
+9. Premise 9: Every zumpus is a vumpus
+10. Premise 10: Every timpus is a yerpus
+11. Premise 11: Every rempus is a numpus
+12. Premise 12: Every vumpus is a worpus
+13. Premise 13: Every rompus is a felpus
+14. Premise 14: Every wumpus is a sterpus
+15. Premise 15: Every zhorpus is a rompus
+16. Premise 16: Sally is a zhorpus
+17. Premise 17: Stella is a yumpus
+18. Premise 18: Bob is a rorpus
+19. Premise 19: Sally is a rempus
+20. Premise 20: Sally is a kerpus
+21. Premise 21: Every wumpus is a fompus
+22. Deduction 1: Sally is a rempus because Premise 2 + Premise 16
+23. Deduction 2: Sally is a kerpus because Premise 8 + Premise 22
+24. Deduction 3: Sally is a rompus because Premise 15 + Premise 16
+25. Deduction 4: Sally is a zumpus because Premise 5 + Premise 16
+26. Deduction 5: Sally is a fompus because Premise 21 + Premise 17
+27. Deduction 6: Sally is a worpus because Premise 12 + Premise 25
+Final Answer: Sally is a fompus
+Parsed Answer: Sally is a fompus
+------------------------------------------------------------
+
+Question: Every yerpus is a gerpus. Every boompus is a shumpus. Every dumpus is a hilpus. Oliver is a zumpus. Oliver is a yerpus. Sally is a dumpus. Every grimpus is a tumpus. Every worpus is a dumpus. Every worpus is a hilpus. Every scrompus is a terpus. Every yerpus is a quimpus. Every terpus is a felpus. Every yerpus is a boompus. Every boompus is a zumpus. Every boompus is a rorpus. Every yerpus is a scrompus. Every yerpus is a sterpus. Every boompus is a grimpus. Every yerpus is a yumpus. Every terpus is a lempus. Every zumpus is a shumpus. Sally is a worpus. Every gerpus is a terpus. Every yumpus is a boompus. Every scrompus is a yumpus. Every yerpus is a zumpus. Oliver is a chorpus. Is Oliver a hilpus or tumpus?
+Expected: oliver is a tumpus
+Model Output:
+1. Premise 1: Every yerpus is a gerpus
+2. Premise 2: Every boompus is a shumpus
+3. Premise 3: Every dumpus is a hilpus
+4. Premise 4: Oliver is a zumpus
+5. Premise 5: Oliver is a yerpus
+6. Premise 6: Sally is a dumpus
+7. Premise 7: Every grimpus is a tumpus
+8. Premise 8: Every worpus is a dumpus
+9. Premise 9: Every worpus is a hilpus
+10. Premise 10: Every scrompus is a terpus
+11. Premise 11: Every yerpus is a quimpus
+12. Premise 12: Every terpus is a felpus
+13. Premise 13: Every yerpus is a boompus
+14. Premise 14: Every boompus is a zumpus
+15. Premise 15: Every boompus is a rorpus
+16. Premise 16: Every yerpus is a scrompus
+17. Premise 17: Every yerpus is a sterpus
+18. Premise 18: Every boompus is a grimpus
+19. Premise 19: Every yerpus is a yumpus
+20. Premise 20: Every terpus is a lempus
+21. Premise 21: Every zumpus is a shumpus
+22. Premise 22: Sally is a worpus
+23. Premise 23: Every gerpus is a terpus
+24. Premise 24: Every yumpus is a boompus
+25. Premise 25: Every scrompus is a yumpus
+26. Premise 26: Every yerpus is a zumpus
+27. Premise 27: Oliver is a chorpus
+28. Deduction 1: Oliver is a gerpus (1 + 5)
+29. Deduction 2: Oliver is a shumpus (2 + 28)
+30. Deduction 3: Sally is a hilpus (3 + 6)
+31. Deduction 4: Oliver is not a tumpus (7 + 28)
+Final Answer: Oliver is a hilpus
+Parsed Answer: Oliver is a hilpus
+------------------------------------------------------------
+
+Question: Every felpus is a chorpus. Every fompus is a felpus. Every terpus is a zumpus. Every dumpus is a yumpus. Davis is a zhorpus. Every terpus is a felpus. Every terpus is a chorpus. Oliver is a gorpus. Every zhorpus is a tumpus. Every yumpus is a chorpus. Oliver is a impus. Every gwompus is a zhorpus. Every gwompus is a zumpus. Every yumpus is a zhorpus. Every impus is a yerpus. Oliver is a yerpus. Every fompus is a chorpus. Every felpus is a tumpus. Every rorpus is a yerpus. Every dumpus is a fompus. Every jompus is a zumpus. Oliver is a rorpus. Every timpus is a zhorpus. Every dumpus is a tumpus. Every impus is a grimpus. Every timpus is a zumpus. Every timpus is a tumpus. Sally is a tumpus. Every fompus is a timpus. Davis is a yumpus. Every fompus is a jompus. Every grimpus is a tumpus. Every fompus is a terpus. Every timpus is a terpus. Every zhorpus is a rempus. Every timpus is a rempus. Every terpus is a tumpus. Davis is a dumpus. Every rorpus is a impus. Every terpus is a rempus. Every grimpus is a sterpus. Every dumpus is a zhorpus. Davis is a gorpus. Every gwompus is a fompus. Every yumpus is a gwompus. Is Oliver a zumpus or sterpus?
+Expected: oliver is a sterpus
+Model Output:
+1. Premise 1: Every felpus is a chorpus
+2. Premise 2: Every fompus is a felpus
+3. Premise 3: Every terpus is a zumpus
+4. Premise 4: Every dumpus is a yumpus
+5. Premise 5: Davis is a zhorpus
+6. Premise 6: Every terpus is a felpus
+7. Premise 7: Every terpus is a chorpus
+8. Premise 8: Oliver is a gorpus
+9. Premise 9: Every zhorpus is a tumpus
+10. Premise 10: Every yumpus is a chorpus
+11. Premise 11: Oliver is a impus
+12. Premise 12: Every gwompus is a zhorpus
+13. Premise 13: Every gwompus is a zumpus
+14. Premise 14: Every yumpus is a zhorpus
+15. Premise 15: Every impus is a yerpus
+16. Premise 16: Oliver is a yerpus
+17. Premise 17: Every fompus is a chorpus
+18. Premise 18: Every felpus is a tumpus
+19. Premise 19: Every rorpus is a yerpus
+20. Premise 20: Every dumpus is a fompus
+21. Premise 21: Every jompus is a zumpus
+22. Premise 22: Oliver is a rorpus
+23. Premise 23: Every timpus is a zhorpus
+24. Premise 24: Every dumpus is a tumpus
+25. Premise 25: Every impus is a grimpus
+26. Premise 26: Every timpus is a zumpus
+27. Premise 27: Every timpus is a tumpus
+28. Premise 28: Sally is a tumpus
+29. Premise 29: Every fompus is a timpus
+30. Premise 30: Davis is a yumpus
+31. Premise 31: Every fompus is a jompus
+32. Premise 32: Every grimpus is a tumpus
+33. Premise 33: Every fompus is a terpus
+34. Premise 34: Every timpus is a terpus
+35. Premise 35: Every zhorpus is a rempus
+36. Premise 36: Every timpus is a rempus
+37. Premise 37: Every terpus is a tumpus
+38. Premise 38: Davis is a dumpus
+39. Premise 39: Every rorpus is a impus
+40. Premise 40: Every terpus is a rempus
+41. Premise 41: Every grimpus is a sterpus
+42. Premise 42: Every dumpus is a zhorpus
+43. Premise 43: Davis is a gorpus
+44. Premise 44: Every gwompus is a fompus
+45. Premise 45: Every yumpus is a gwompus
+
+Deduction 1: Oliver is a zhorpus because Premise 5 + Premise 8
+Deduction 2: Oliver is a tumpus because Premise 9 + Deduction 1
+Deduction 3: Oliver is a zumpus because Premise 3 + Deduction 2
+Final Answer: Oliver is a zumpus
+Parsed Answer: Oliver is a zumpus
+------------------------------------------------------------

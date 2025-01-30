@@ -1,0 +1,86 @@
+Evaluation Report
+==================================================
+Final Accuracy: 60.0%
+
+CORRECT CASES:
+
+Q: Every shumpus is a rempus. Every shumpus is a yimpus. Every terpus is a fompus. Every terpus is a gerpus. Every gerpus is a brimpus. Alex is a rempus. Every rorpus is a scrompus. Every rorpus is a yimpus. Every terpus is a brimpus. Every brimpus is a lempus. Tom is a terpus. Every shumpus is a timpus. Every yimpus is a boompus. Davis is a shumpus. Every gerpus is a lorpus. Davis is a fompus. Every shumpus is a boompus. Every shumpus is a rorpus. Every terpus is a lorpus. Every boompus is a timpus. Every fompus is a yerpus. Tom is a dumpus. Every rempus is a rorpus. Is Tom a lempus or scrompus?
+Expected: Tom is a lempus.
+Received: Tom is a lempus
+Raw Response:
+Reasoning:
+1. Tom is a terpus.
+2. Every terpus is a brimpus.
+3. Every brimpus is a lempus.
+Final Answer: Tom is a lempus.
+------------------------------------------------------------
+
+Q: Sally is a zhorpus. Every yumpus is a fompus. Every zhorpus is a rempus. Every rompus is a sterpus. Every kerpus is a timpus. Stella is a yumpus. Every zhorpus is a zumpus. Every wumpus is a yumpus. Sally is a rempus. Stella is a wumpus. Every zumpus is a rorpus. Sally is a rompus. Every numpus is a bompus. Every zumpus is a scrompus. Every rempus is a kerpus. Every zumpus is a vumpus. Every timpus is a yerpus. Every rempus is a numpus. Every vumpus is a worpus. Every rompus is a felpus. Every wumpus is a sterpus. Every rompus is a kerpus. Every zumpus is a rempus. Every rempus is a chorpus. Bob is a rorpus. Every wumpus is a fompus. Sally is a kerpus. Every zhorpus is a rompus. Is Sally a fompus or worpus?
+Expected: Sally is a worpus.
+Received: Sally is a worpus
+Raw Response:
+Reasoning:
+1. Sally is a zhorpus.
+2. Every zhorpus is a rempus.
+3. Every rempus is a kerpus.
+4. Sally is a kerpus.
+5. Every kerpus is a timpus.
+6. Sally is a timpus.
+7. Every timpus is a yerpus.
+8. Sally is a yerpus.
+9. Every yerpus is a worpus.
+10. Sally is a worpus.
+Final Answer: Sally is a worpus.
+------------------------------------------------------------
+
+Q: Every shumpus is a yumpus. Every worpus is a yimpus. Every shumpus is a gwompus. Every tumpus is a boompus. Every worpus is a shumpus. Every storpus is a terpus. Max is a yimpus. Every shumpus is a rompus. Every wumpus is a jelpus. Every boompus is a terpus. Fae is a tumpus. Every tumpus is a worpus. Every rompus is a gorpus. Every timpus is a impus. Every jompus is a gerpus. Every boompus is a rompus. Fae is a boompus. Every boompus is a kerpus. Every zumpus is a bompus. Max is a rempus. Every rompus is a kerpus. Max is a impus. Every rempus is a impus. Every wumpus is a yumpus. Every grimpus is a terpus. Every tumpus is a jompus. Every yumpus is a felpus. Every jelpus is a felpus. Every shumpus is a felpus. Every rempus is a timpus. Every storpus is a jompus. Every rompus is a storpus. Every tumpus is a wumpus. Every wumpus is a jompus. Every boompus is a worpus. Fae is a storpus. Every worpus is a jelpus. Every grimpus is a felpus. Every worpus is a yumpus. Every rempus is a zumpus. Every kerpus is a grimpus. Is Fae a gwompus or bompus?
+Expected: Fae is a gwompus.
+Received: Fae is a gwompus
+Raw Response:
+Reasoning:
+1. Every worpus is a shumpus.
+2. Every shumpus is a gwompus.
+3. Every worpus is a gwompus.
+4. Fae is a worpus.
+5. Fae is a gwompus.
+Final Answer: Fae is a gwompus
+------------------------------------------------------------
+INCORRECT CASES:
+
+Q: Every fompus is a sterpus. Every zhorpus is a brimpus. Every wumpus is a gorpus. Every rorpus is a shumpus. Every terpus is a zumpus. Gabriel is a quimpus. Every yerpus is a fompus. Every grimpus is a zhorpus. Every quimpus is a gorpus. Every yerpus is a zumpus. Every boompus is a lempus. Tom is a zhorpus. Every zhorpus is a kerpus. Every rorpus is a zumpus. Gabriel is a boompus. Every quimpus is a lempus. Every yerpus is a terpus. Every scrompus is a bompus. Tom is a grimpus. Every zhorpus is a dumpus. Every boompus is a rorpus. Every boompus is a wumpus. Every terpus is a fompus. Every terpus is a bompus. Every scrompus is a storpus. Every dumpus is a kerpus. Every lempus is a yerpus. Every terpus is a rorpus. Every rorpus is a scrompus. Alex is a wumpus. Every lempus is a bompus. Every gorpus is a sterpus. Every lempus is a rorpus. Tom is a felpus. Gabriel is a lempus. Every dumpus is a bompus. Every sterpus is a zumpus. Is Gabriel a storpus or felpus?
+Expected: Gabriel is a storpus.
+Received: Gabriel is a sterpus
+Raw Response:
+Reasoning:
+1. Every yerpus is a fompus.
+2. Every fompus is a sterpus.
+3. Therefore, every yerpus is a sterpus.
+4. Gabriel is a quimpus.
+5. Every quimpus is a gorpus.
+6. Every gorpus is a sterpus.
+7. Therefore, Gabriel is a sterpus.
+Final Answer: Gabriel is a sterpus
+------------------------------------------------------------
+
+Q: Every dumpus is a boompus. Sally is a numpus. Sally is a worpus. Every grimpus is a hilpus. Every hilpus is a chorpus. Every rorpus is a bompus. Every numpus is a grimpus. Every yumpus is a quimpus. Every dumpus is a yumpus. Every shumpus is a jompus. Every grimpus is a terpus. Every kerpus is a gwompus. Rex is a shumpus. Every hilpus is a lempus. Every yumpus is a tumpus. Every kerpus is a lorpus. Every gorpus is a grimpus. Every quimpus is a tumpus. Every numpus is a gorpus. Every worpus is a hilpus. Every grimpus is a kerpus. Every numpus is a worpus. Sally is a gorpus. Rex is a dumpus. Every kerpus is a rorpus. Every gorpus is a worpus. Every terpus is a rorpus. Every worpus is a impus. Is Sally a bompus or boompus?
+Expected: Sally is a bompus.
+Received: Sally is a boompus
+Raw Response:
+Reasoning:
+1. Every dumpus is a boompus.
+2. Sally is a dumpus.
+3. Therefore, Sally is a boompus.
+Final Answer: Sally is a boompus
+------------------------------------------------------------
+
+Q: Every felpus is a chorpus. Every fompus is a felpus. Every terpus is a zumpus. Every dumpus is a yumpus. Davis is a zhorpus. Every terpus is a felpus. Every terpus is a chorpus. Oliver is a gorpus. Every zhorpus is a tumpus. Every yumpus is a chorpus. Oliver is a impus. Every gwompus is a zhorpus. Every gwompus is a zumpus. Every yumpus is a zhorpus. Every impus is a yerpus. Oliver is a yerpus. Every fompus is a chorpus. Every felpus is a tumpus. Every rorpus is a yerpus. Every dumpus is a fompus. Every jompus is a zumpus. Oliver is a rorpus. Every timpus is a zhorpus. Every dumpus is a tumpus. Every impus is a grimpus. Every timpus is a zumpus. Every timpus is a tumpus. Sally is a tumpus. Every fompus is a timpus. Davis is a yumpus. Every fompus is a jompus. Every grimpus is a tumpus. Every fompus is a terpus. Every timpus is a terpus. Every zhorpus is a rempus. Every timpus is a rempus. Every terpus is a tumpus. Davis is a dumpus. Every rorpus is a impus. Every terpus is a rempus. Every grimpus is a sterpus. Every dumpus is a zhorpus. Davis is a gorpus. Every gwompus is a fompus. Every yumpus is a gwompus. Is Oliver a zumpus or sterpus?
+Expected: Oliver is a sterpus.
+Received: Oliver is a zumpus
+Raw Response:
+Reasoning:
+1. Every terpus is a zumpus.
+2. Oliver is a terpus.
+3. Therefore, Oliver is a zumpus.
+
+Final Answer: Oliver is a zumpus
+------------------------------------------------------------

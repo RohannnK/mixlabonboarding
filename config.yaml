@@ -1,0 +1,13 @@
+paths:
+  subset: "./data/prosqa_subset.json"
+  output: "./results/evaluation_report.json"
+
+prompt:
+  system: "You are a logical assistant that follows a strict reasoning format."
+  answer_prefix: "Final Answer: "  # Used for extracting the final answer
+  required_format: "Answer must be in the format: '[Name] is a [Category]'."
+
+model:
+  name: "gemini-pro"  
+  temperature: 0.0  # Greedy decoding for consistency
+  max_tokens: 512  # Allow enough room for reasoning

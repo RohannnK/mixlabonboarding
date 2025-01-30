@@ -1,0 +1,14 @@
+[
+    {
+        "question": "Every shumpus is a rempus. Is Tom a lempus or scrompus?",
+        "expected_answer": "Tom is a lempus.",
+        "model_output": null,
+        "is_correct": false
+    },
+    {
+        "question": "Sally is a zhorpus. Is Sally a fompus or worpus?",
+        "expected_answer": "Sally is a worpus.",
+        "model_output": null,
+        "is_correct": false
+    }
+]

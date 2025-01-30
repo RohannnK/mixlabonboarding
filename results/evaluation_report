@@ -1,0 +1,99 @@
+{
+  "summary": {
+    "accuracy": 0.1,
+    "correct": 1,
+    "total": 10
+  },
+  "case_studies": {
+    "correct": [
+      {
+        "question": "Every shumpus is a rempus. Every shumpus is a yimpus. Every terpus is a fompus. Every terpus is a gerpus. Every gerpus is a brimpus. Alex is a rempus. Every rorpus is a scrompus. Every rorpus is a yimpus. Every terpus is a brimpus. Every brimpus is a lempus. Tom is a terpus. Every shumpus is a timpus. Every yimpus is a boompus. Davis is a shumpus. Every gerpus is a lorpus. Davis is a fompus. Every shumpus is a boompus. Every shumpus is a rorpus. Every terpus is a lorpus. Every boompus is a timpus. Every fompus is a yerpus. Tom is a dumpus. Every rempus is a rorpus. Is Tom a lempus or scrompus?",
+        "expected": "Tom is a lempus.",
+        "final_answer": "Tom is a lempus.",
+        "correct": true
+      }
+    ],
+    "incorrect": [
+      {
+        "question": "Sally is a zhorpus. Every yumpus is a fompus. Every zhorpus is a rempus. Every rompus is a sterpus. Every kerpus is a timpus. Stella is a yumpus. Every zhorpus is a zumpus. Every wumpus is a yumpus. Sally is a rempus. Stella is a wumpus. Every zumpus is a rorpus. Sally is a rompus. Every numpus is a bompus. Every zumpus is a scrompus. Every rempus is a kerpus. Every zumpus is a vumpus. Every timpus is a yerpus. Every rempus is a numpus. Every vumpus is a worpus. Every rompus is a felpus. Every wumpus is a sterpus. Every rompus is a kerpus. Every zumpus is a rempus. Every rempus is a chorpus. Bob is a rorpus. Every wumpus is a fompus. Sally is a kerpus. Every zhorpus is a rompus. Is Sally a fompus or worpus?",
+        "expected": "Sally is a worpus.",
+        "final_answer": "None",
+        "correct": false
+      },
+      {
+        "question": "Every shumpus is a yumpus. Every worpus is a yimpus. Every shumpus is a gwompus. Every tumpus is a boompus. Every worpus is a shumpus. Every storpus is a terpus. Max is a yimpus. Every shumpus is a rompus. Every wumpus is a jelpus. Every boompus is a terpus. Fae is a tumpus. Every tumpus is a worpus. Every rompus is a gorpus. Every timpus is a impus. Every jompus is a gerpus. Every boompus is a rompus. Fae is a boompus. Every boompus is a kerpus. Every zumpus is a bompus. Max is a rempus. Every rompus is a kerpus. Max is a impus. Every rempus is a impus. Every wumpus is a yumpus. Every grimpus is a terpus. Every tumpus is a jompus. Every yumpus is a felpus. Every jelpus is a felpus. Every shumpus is a felpus. Every rempus is a timpus. Every storpus is a jompus. Every rompus is a storpus. Every tumpus is a wumpus. Every wumpus is a jompus. Every boompus is a worpus. Fae is a storpus. Every worpus is a jelpus. Every grimpus is a felpus. Every worpus is a yumpus. Every rempus is a zumpus. Every kerpus is a grimpus. Is Fae a gwompus or bompus?",
+        "expected": "Fae is a gwompus.",
+        "final_answer": "None",
+        "correct": false
+      },
+      {
+        "question": "Every fompus is a sterpus. Every zhorpus is a brimpus. Every wumpus is a gorpus. Every rorpus is a shumpus. Every terpus is a zumpus. Gabriel is a quimpus. Every yerpus is a fompus. Every grimpus is a zhorpus. Every quimpus is a gorpus. Every yerpus is a zumpus. Every boompus is a lempus. Tom is a zhorpus. Every zhorpus is a kerpus. Every rorpus is a zumpus. Gabriel is a boompus. Every quimpus is a lempus. Every yerpus is a terpus. Every scrompus is a bompus. Tom is a grimpus. Every zhorpus is a dumpus. Every boompus is a rorpus. Every boompus is a wumpus. Every terpus is a fompus. Every terpus is a bompus. Every scrompus is a storpus. Every dumpus is a kerpus. Every lempus is a yerpus. Every terpus is a rorpus. Every rorpus is a scrompus. Alex is a wumpus. Every lempus is a bompus. Every gorpus is a sterpus. Every lempus is a rorpus. Tom is a felpus. Gabriel is a lempus. Every dumpus is a bompus. Every sterpus is a zumpus. Is Gabriel a storpus or felpus?",
+        "expected": "Gabriel is a storpus.",
+        "final_answer": "None",
+        "correct": false
+      }
+    ]
+  },
+  "full_results": [
+    {
+      "question": "Every shumpus is a rempus. Every shumpus is a yimpus. Every terpus is a fompus. Every terpus is a gerpus. Every gerpus is a brimpus. Alex is a rempus. Every rorpus is a scrompus. Every rorpus is a yimpus. Every terpus is a brimpus. Every brimpus is a lempus. Tom is a terpus. Every shumpus is a timpus. Every yimpus is a boompus. Davis is a shumpus. Every gerpus is a lorpus. Davis is a fompus. Every shumpus is a boompus. Every shumpus is a rorpus. Every terpus is a lorpus. Every boompus is a timpus. Every fompus is a yerpus. Tom is a dumpus. Every rempus is a rorpus. Is Tom a lempus or scrompus?",
+      "expected": "Tom is a lempus.",
+      "final_answer": "Tom is a lempus.",
+      "correct": true
+    },
+    {
+      "question": "Sally is a zhorpus. Every yumpus is a fompus. Every zhorpus is a rempus. Every rompus is a sterpus. Every kerpus is a timpus. Stella is a yumpus. Every zhorpus is a zumpus. Every wumpus is a yumpus. Sally is a rempus. Stella is a wumpus. Every zumpus is a rorpus. Sally is a rompus. Every numpus is a bompus. Every zumpus is a scrompus. Every rempus is a kerpus. Every zumpus is a vumpus. Every timpus is a yerpus. Every rempus is a numpus. Every vumpus is a worpus. Every rompus is a felpus. Every wumpus is a sterpus. Every rompus is a kerpus. Every zumpus is a rempus. Every rempus is a chorpus. Bob is a rorpus. Every wumpus is a fompus. Sally is a kerpus. Every zhorpus is a rompus. Is Sally a fompus or worpus?",
+      "expected": "Sally is a worpus.",
+      "final_answer": "None",
+      "correct": false
+    },
+    {
+      "question": "Every shumpus is a yumpus. Every worpus is a yimpus. Every shumpus is a gwompus. Every tumpus is a boompus. Every worpus is a shumpus. Every storpus is a terpus. Max is a yimpus. Every shumpus is a rompus. Every wumpus is a jelpus. Every boompus is a terpus. Fae is a tumpus. Every tumpus is a worpus. Every rompus is a gorpus. Every timpus is a impus. Every jompus is a gerpus. Every boompus is a rompus. Fae is a boompus. Every boompus is a kerpus. Every zumpus is a bompus. Max is a rempus. Every rompus is a kerpus. Max is a impus. Every rempus is a impus. Every wumpus is a yumpus. Every grimpus is a terpus. Every tumpus is a jompus. Every yumpus is a felpus. Every jelpus is a felpus. Every shumpus is a felpus. Every rempus is a timpus. Every storpus is a jompus. Every rompus is a storpus. Every tumpus is a wumpus. Every wumpus is a jompus. Every boompus is a worpus. Fae is a storpus. Every worpus is a jelpus. Every grimpus is a felpus. Every worpus is a yumpus. Every rempus is a zumpus. Every kerpus is a grimpus. Is Fae a gwompus or bompus?",
+      "expected": "Fae is a gwompus.",
+      "final_answer": "None",
+      "correct": false
+    },
+    {
+      "question": "Every fompus is a sterpus. Every zhorpus is a brimpus. Every wumpus is a gorpus. Every rorpus is a shumpus. Every terpus is a zumpus. Gabriel is a quimpus. Every yerpus is a fompus. Every grimpus is a zhorpus. Every quimpus is a gorpus. Every yerpus is a zumpus. Every boompus is a lempus. Tom is a zhorpus. Every zhorpus is a kerpus. Every rorpus is a zumpus. Gabriel is a boompus. Every quimpus is a lempus. Every yerpus is a terpus. Every scrompus is a bompus. Tom is a grimpus. Every zhorpus is a dumpus. Every boompus is a rorpus. Every boompus is a wumpus. Every terpus is a fompus. Every terpus is a bompus. Every scrompus is a storpus. Every dumpus is a kerpus. Every lempus is a yerpus. Every terpus is a rorpus. Every rorpus is a scrompus. Alex is a wumpus. Every lempus is a bompus. Every gorpus is a sterpus. Every lempus is a rorpus. Tom is a felpus. Gabriel is a lempus. Every dumpus is a bompus. Every sterpus is a zumpus. Is Gabriel a storpus or felpus?",
+      "expected": "Gabriel is a storpus.",
+      "final_answer": "None",
+      "correct": false
+    },
+    {
+      "question": "Every yerpus is a gerpus. Every boompus is a shumpus. Every dumpus is a hilpus. Oliver is a zumpus. Oliver is a yerpus. Sally is a dumpus. Every grimpus is a tumpus. Every worpus is a dumpus. Every worpus is a hilpus. Every scrompus is a terpus. Every yerpus is a quimpus. Every terpus is a felpus. Every yerpus is a boompus. Every boompus is a zumpus. Every boompus is a rorpus. Every yerpus is a scrompus. Every yerpus is a sterpus. Every boompus is a grimpus. Every yerpus is a yumpus. Every terpus is a lempus. Every zumpus is a shumpus. Sally is a worpus. Every gerpus is a terpus. Every yumpus is a boompus. Every scrompus is a yumpus. Every yerpus is a zumpus. Oliver is a chorpus. Is Oliver a hilpus or tumpus?",
+      "expected": "Oliver is a tumpus.",
+      "final_answer": "None",
+      "correct": false
+    },
+    {
+      "question": "Every dumpus is a boompus. Sally is a numpus. Sally is a worpus. Every grimpus is a hilpus. Every hilpus is a chorpus. Every rorpus is a bompus. Every numpus is a grimpus. Every yumpus is a quimpus. Every dumpus is a yumpus. Every shumpus is a jompus. Every grimpus is a terpus. Every kerpus is a gwompus. Rex is a shumpus. Every hilpus is a lempus. Every yumpus is a tumpus. Every kerpus is a lorpus. Every gorpus is a grimpus. Every quimpus is a tumpus. Every numpus is a gorpus. Every worpus is a hilpus. Every grimpus is a kerpus. Every numpus is a worpus. Sally is a gorpus. Rex is a dumpus. Every kerpus is a rorpus. Every gorpus is a worpus. Every terpus is a rorpus. Every worpus is a impus. Is Sally a bompus or boompus?",
+      "expected": "Sally is a bompus.",
+      "final_answer": "None",
+      "correct": false
+    },
+    {
+      "question": "Every felpus is a chorpus. Every fompus is a felpus. Every terpus is a zumpus. Every dumpus is a yumpus. Davis is a zhorpus. Every terpus is a felpus. Every terpus is a chorpus. Oliver is a gorpus. Every zhorpus is a tumpus. Every yumpus is a chorpus. Oliver is a impus. Every gwompus is a zhorpus. Every gwompus is a zumpus. Every yumpus is a zhorpus. Every impus is a yerpus. Oliver is a yerpus. Every fompus is a chorpus. Every felpus is a tumpus. Every rorpus is a yerpus. Every dumpus is a fompus. Every jompus is a zumpus. Oliver is a rorpus. Every timpus is a zhorpus. Every dumpus is a tumpus. Every impus is a grimpus. Every timpus is a zumpus. Every timpus is a tumpus. Sally is a tumpus. Every fompus is a timpus. Davis is a yumpus. Every fompus is a jompus. Every grimpus is a tumpus. Every fompus is a terpus. Every timpus is a terpus. Every zhorpus is a rempus. Every timpus is a rempus. Every terpus is a tumpus. Davis is a dumpus. Every rorpus is a impus. Every terpus is a rempus. Every grimpus is a sterpus. Every dumpus is a zhorpus. Davis is a gorpus. Every gwompus is a fompus. Every yumpus is a gwompus. Is Oliver a zumpus or sterpus?",
+      "expected": "Oliver is a sterpus.",
+      "final_answer": "None",
+      "correct": false
+    },
+    {
+      "question": "Every rempus is a brimpus. Every quimpus is a tumpus. Carol is a jelpus. Gabriel is a jompus. Every quimpus is a bompus. Every tumpus is a grimpus. Jack is a bompus. Gabriel is a kerpus. Every brimpus is a dumpus. Every bompus is a grimpus. Jack is a jompus. Carol is a rempus. Every fompus is a bompus. Every jelpus is a numpus. Every quimpus is a impus. Every quimpus is a dumpus. Every tumpus is a rempus. Every grimpus is a timpus. Jack is a tumpus. Jack is a quimpus. Jack is a vumpus. Every tumpus is a bompus. Polly is a rompus. Every yimpus is a jelpus. Every vumpus is a fompus. Every quimpus is a lorpus. Every tumpus is a lorpus. Gabriel is a worpus. Every lorpus is a fompus. Every quimpus is a vumpus. Every rempus is a numpus. Every kerpus is a worpus. Every kerpus is a yimpus. Is Jack a timpus or worpus?",
+      "expected": "Jack is a timpus.",
+      "final_answer": "None",
+      "correct": false
+    },
+    {
+      "question": "Tom is a zhorpus. Every impus is a sterpus. Every yerpus is a shumpus. Every wumpus is a shumpus. Tom is a bompus. Every worpus is a zumpus. Every rompus is a jelpus. Every rempus is a zhorpus. Every bompus is a impus. Every yerpus is a bompus. Every zumpus is a tumpus. Every bompus is a sterpus. Every impus is a chorpus. Every zumpus is a lempus. Every rempus is a jelpus. Every wumpus is a jelpus. Every rempus is a yerpus. Every yerpus is a gerpus. Every gerpus is a bompus. Every terpus is a gorpus. Eva is a gwompus. Every gorpus is a numpus. Every rompus is a terpus. Every wumpus is a sterpus. Every wumpus is a yerpus. Every yerpus is a chorpus. Every shumpus is a bompus. Every wumpus is a bompus. Every zhorpus is a gerpus. Every worpus is a gwompus. Every wumpus is a zhorpus. Eva is a rompus. Tom is a rempus. Eva is a worpus. Every zhorpus is a lempus. Every shumpus is a impus. Every rempus is a wumpus. Every shumpus is a gerpus. Every worpus is a jelpus. Every zhorpus is a bompus. Every rompus is a worpus. Every jelpus is a rorpus. Is Eva a numpus or sterpus?",
+      "expected": "Eva is a numpus.",
+      "final_answer": "None",
+      "correct": false
+    },
+    {
+      "question": "Every rorpus is a numpus. Every chorpus is a storpus. Every shumpus is a timpus. Every quimpus is a worpus. Every zhorpus is a chorpus. Every gerpus is a fompus. Every tumpus is a bompus. Every tumpus is a terpus. Every jelpus is a fompus. Every boompus is a numpus. Every storpus is a shumpus. Every chorpus is a numpus. Every rorpus is a timpus. Sally is a rempus. Every boompus is a quimpus. Every timpus is a gorpus. Every rorpus is a chorpus. Every rempus is a tumpus. Every tumpus is a quimpus. Sally is a terpus. Every chorpus is a vumpus. Every gerpus is a terpus. Every jelpus is a gerpus. Every gerpus is a dumpus. Every fompus is a terpus. Every zhorpus is a storpus. Every chorpus is a sterpus. Every storpus is a hilpus. Rex is a zhorpus. Every jompus is a quimpus. Every tumpus is a gerpus. Every tumpus is a gorpus. Every tumpus is a numpus. Every wumpus is a shumpus. Every fompus is a dumpus. Every chorpus is a shumpus. Every rempus is a jompus. Every jompus is a terpus. Every rorpus is a shumpus. Every sterpus is a timpus. Every zhorpus is a rorpus. Every rempus is a jelpus. Sally is a quimpus. Every rorpus is a storpus. Every wumpus is a vumpus. Rex is a wumpus. Every storpus is a zumpus. Every tumpus is a boompus. Every jelpus is a zumpus. Is Sally a vumpus or dumpus?",
+      "expected": "Sally is a dumpus.",
+      "final_answer": "None",
+      "correct": false
+    }
+  ]
+}

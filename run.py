@@ -43,7 +43,7 @@ def main():
     args = parser.parse_args()
 
     # init distributed environment
-    dist.init_process_group("nccl")
+#    dist.init_process_group("gloo")
     local_rank = int(os.environ["LOCAL_RANK"])
     rank = int(os.environ["RANK"])
     world_size = int(os.environ["WORLD_SIZE"])
