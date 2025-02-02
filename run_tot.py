@@ -4,23 +4,17 @@ import json
 import logging
 import random
 from collections import deque, defaultdict
+from copy import deepcopy
 from reasoners import WorldModel, SearchConfig, Reasoner
-from reasoners.algorithm import MCTS
+from reasoners.algorithm import MCTS, MCTSResult, MCTSNode
 from reasoners.visualization import TreeSnapshot
 
 ###############################################################################
-# Set up logging and output redirection to a log file.
-# Create the results directory if it doesn't exist.
+# Set up logging and output redirection.
 os.makedirs("results", exist_ok=True)
-
-# Define the log file name.
 log_file = "results/task2execution.log"
-
-# Redirect standard output and error to the log file.
 sys.stdout = open(log_file, "w")
 sys.stderr = sys.stdout
-
-# Configure logging to output to both file and (redirected) console.
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -29,26 +23,18 @@ logging.basicConfig(
         logging.StreamHandler(sys.stdout)
     ]
 )
-
 logging.info("Starting Task 2 Execution with Tree of Thoughts...")
 
 ###############################################################################
-# Helper Functions: Simulated LLM Feedback and Graph Heuristics
+# Helper Functions: LLM Feedback, Similarity, Graph Distances, Evaluation
 
 def simulated_llm_feedback(chain):
-    """
-    Simulate an LLM prompt that evaluates the chain-of-thought.
-    Returns a bonus proportional to the number of steps (0.05 per step).
-    """
+    """Return bonus of 0.05 per step in the chain."""
     return 0.05 * len(chain)
 
 def similarity_bonus(current_symbol, target_symbol):
     """
-    Compute a bonus based on similarity between the current symbol and the target symbol.
-    Returns:
-      - 0.5 if they match exactly,
-      - 0.2 if they share the same first character,
-      - Otherwise, 0.
+    Return 0.5 if symbols match; 0.2 if their first characters match; else 0.
     """
     if current_symbol == target_symbol:
         return 0.5
@@ -60,8 +46,7 @@ def similarity_bonus(current_symbol, target_symbol):
 def compute_reverse_distances(edges, target):
     """
     Compute the shortest-path distances from every node to the target using reverse-BFS.
-    Returns a dictionary mapping each node to its distance from the target.
-    Nodes that cannot reach the target receive a distance of infinity.
+    Returns a dictionary mapping each node to its distance.
     """
     reverse_graph = defaultdict(list)
     nodes = set()
@@ -82,11 +67,7 @@ def compute_reverse_distances(edges, target):
 
 def evaluate_state(state, idx_to_symbol, target, distances):
     """
-    Globally evaluate a candidate chain-of-thought (state) by combining:
-      - A bonus for chain length (simulated_llm_feedback),
-      - A similarity bonus comparing the current node's symbol to the target,
-      - A bonus for being closer (in graph distance) to the target.
-    Returns a numerical score.
+    Compute an evaluation score for a candidate state from chain length, similarity, and graph distance.
     """
     chain = state['path']
     base_bonus = simulated_llm_feedback(chain)
@@ -94,47 +75,30 @@ def evaluate_state(state, idx_to_symbol, target, distances):
     current_sym = idx_to_symbol.get(current_node, "")
     target_sym = idx_to_symbol.get(target, "")
     sim_bonus = similarity_bonus(current_sym, target_sym)
-    
     dist = distances.get(current_node, float('inf'))
-    distance_bonus = 0
-    if dist != float('inf'):
-        distance_bonus = max(0, 5 - dist) * 0.1  # Adjust factor as needed.
-    
-    total_score = base_bonus + sim_bonus + distance_bonus
-    return total_score
+    distance_bonus = max(0, 5 - dist) * 0.1 if dist != float('inf') else 0
+    return base_bonus + sim_bonus + distance_bonus
 
 ###############################################################################
-# World Model: Defines states and transitions (each edge is an action)
+# World Model
 
 class ProsQAWorldModel(WorldModel):
     """
-    ProsQA world model.
-    
     Each state is a dictionary with:
-      - 'current_node': the current node (None initially),
-      - 'path': a list of actions (edges) representing the chain-of-thought.
+      - 'current_node': current node (None initially)
+      - 'path': list of (u, v) edges taken so far.
     """
     def __init__(self, idx_to_symbol, edges, target):
-        # Convert idx_to_symbol to a dictionary if provided as a list.
-        if isinstance(idx_to_symbol, list):
-            self.idx_to_symbol = {i: s for i, s in enumerate(idx_to_symbol)}
-        else:
-            self.idx_to_symbol = idx_to_symbol
-        # Convert edges to tuples.
+        self.idx_to_symbol = {i: s for i, s in enumerate(idx_to_symbol)} if isinstance(idx_to_symbol, list) else idx_to_symbol
         self.edges = [tuple(edge) for edge in edges]
         self.target = target
 
     def init_state(self):
-        """Initialize state with no current node and an empty chain."""
-        initial = {'current_node': None, 'path': []}
-        print(f"[DEBUG] Initializing state: {initial}", flush=True)
-        return initial
+        init_state = {'current_node': None, 'path': []}
+        print(f"[DEBUG] Initializing state: {init_state}", flush=True)
+        return init_state
 
     def step(self, state, action):
-        """
-        Apply an action (edge) to the current state.
-        Update the current node to the action's destination and add the action to the path.
-        """
         new_state = {
             'current_node': action[1],
             'path': state['path'] + [tuple(action)]
@@ -143,31 +107,16 @@ class ProsQAWorldModel(WorldModel):
         return new_state, {}
 
     def is_terminal(self, state):
-        """
-        Check if the state is terminal (i.e., if the current node equals the target).
-        """
-        terminal = (state['current_node'] == self.target)
-        print(f"[DEBUG] Checking if state {state} is terminal: {terminal}", flush=True)
-        return terminal
+        term = (state['current_node'] == self.target)
+        print(f"[DEBUG] Checking if state {state} is terminal: {term}", flush=True)
+        return term
 
 ###############################################################################
-# Search Configuration: Defines action generation and reward computation
+# Search Configuration
 
 class ProsQASearchConfig(SearchConfig):
     """
-    ProsQA search configuration.
-    
-    get_actions(state):
-      Returns available actions (edges) from the current node.
-      If the current node is None, uses the provided root.
-      
-    reward(state, action):
-      Computes a reward for an action based on:
-         - A base reward (1.0 if terminal, 0.7 for valid nonterminal).
-         - A bonus from simulated LLM feedback (chain length bonus).
-         - A similarity bonus comparing the next node's symbol to the target.
-         - A bonus for improvement in graph distance.
-         - A penalty (-0.3) if the resulting state is a dead end.
+    Defines available actions and computes reward.
     """
     def __init__(self, idx_to_symbol, edges, target, root):
         super().__init__()
@@ -175,188 +124,174 @@ class ProsQASearchConfig(SearchConfig):
         self.edges = [tuple(e) for e in edges]
         self.target = target
         self.root = root
-        # Precompute graph distances from each node to the target.
         self.distances = compute_reverse_distances(self.edges, target)
 
     def get_actions(self, state):
-        """
-        Return all available actions from the current state.
-        """
         current = state['current_node'] if state['current_node'] is not None else self.root
-        actions = [e for e in self.edges if e[0] == current]
+        actions = [edge for edge in self.edges if edge[0] == current]
         print(f"[DEBUG] Available actions from state {state}: {actions}", flush=True)
         return actions
 
     def reward(self, state, action):
-        """
-        Compute the reward for taking a given action in the current state.
-        Combines:
-          - A base reward (1.0 if terminal, else 0.7).
-          - A bonus from simulated LLM feedback (chain length bonus).
-          - A similarity bonus (comparing next node's symbol with the target).
-          - A bonus for reducing the graph distance.
-          - A heavy penalty (-0.3) if the resulting state is a dead end.
-        """
-        valid = tuple(action) in self.edges
+        valid = (action in self.edges)
         next_node = action[1]
         terminal = (next_node == self.target)
-        
-        # Bonus from chain length.
-        base_bonus = simulated_llm_feedback(state['path'] + [tuple(action)])
-        # Similarity bonus.
+        chain = state['path'] + [tuple(action)]
+        base_bonus = simulated_llm_feedback(chain)
         current_sym = self.idx_to_symbol.get(next_node, "")
         target_sym = self.idx_to_symbol.get(self.target, "")
         sim_bonus = similarity_bonus(current_sym, target_sym)
-        # Graph distance bonus.
         current_node = state['current_node'] if state['current_node'] is not None else self.root
         old_dist = self.distances.get(current_node, float('inf'))
         new_dist = self.distances.get(next_node, float('inf'))
-        distance_improvement = old_dist - new_dist if (old_dist != float('inf') and new_dist != float('inf')) else 0
-        dist_bonus = 0.2 * distance_improvement
-        
+        dist_improvement = old_dist - new_dist if old_dist != float('inf') and new_dist != float('inf') else 0
+        dist_bonus = 0.2 * dist_improvement
         total_bonus = base_bonus + sim_bonus + dist_bonus
-        
         if terminal:
             r = 1.0 + total_bonus
         elif not valid:
             r = 0.1
         else:
-            # Check if the resulting state is a dead end.
-            next_state = {
-                'current_node': next_node,
-                'path': state['path'] + [tuple(action)]
-            }
-            if len(self.get_actions(next_state)) == 0:
-                r = -0.3
-            else:
-                r = 0.7 + total_bonus
-        print(f"[DEBUG] Reward for state {state} and action {action}: {r} "
-              f"(valid: {valid}, terminal: {terminal}, base_bonus: {base_bonus}, "
-              f"sim_bonus: {sim_bonus}, dist_bonus: {dist_bonus})", flush=True)
+            next_state = {'current_node': next_node, 'path': chain}
+            actions_next = self.get_actions(next_state)
+            r = -0.3 if len(actions_next) == 0 else 0.7 + total_bonus
+        print(f"[DEBUG] Reward for state {state} and action {action}: {r}", flush=True)
         return r, {'valid': valid, 'terminal': terminal}
 
 ###############################################################################
-# Main Evaluation Function with Ensemble Reranking
+# Custom Save Function for TreeSnapshot
+
+def save_snapshot(snapshot, file_path):
+    """
+    Save the TreeSnapshot to a JSON file using its custom __dict__() method.
+    """
+    # TreeSnapshot defines a __dict__() method that returns a dictionary
+    data = snapshot.__dict__()
+    with open(file_path, "w") as f:
+        json.dump(data, f, default=str, indent=2)
+    print(f"[DEBUG] Saved search tree visualization to {file_path}", flush=True)
+
+###############################################################################
+# Main Evaluation Function with Ensemble Reranking and Visualization
 
 def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshold=1.0):
     """
-    Evaluate the tree search algorithm on the ProsQA dataset.
-    
     For each example:
-      - Run the tree search 'num_runs' times (to create an ensemble).
-      - Use a global evaluation function (simulate an LLM evaluation) to score each candidate chain.
-      - Select the candidate with the highest evaluation score.
-      - A candidate is deemed successful if its final current_node equals the target or if its global evaluation score exceeds evaluation_threshold.
-      - Visualize the search tree for one example where the approach succeeds.
+      - Run the search num_runs times.
+      - Collect candidate states along with their search trace (result.trace_of_nodes) and score.
+      - Choose the candidate with the highest score (with a nonempty trace).
+      - Build a visualization from that candidate's trace.
     """
     os.makedirs(output_dir, exist_ok=True)
-    
-    # Load dataset (assumed JSON format).
-    with open(dataset_path, 'r') as f:
+    with open(dataset_path, "r") as f:
         dataset = json.load(f)
-    
     successes = []
-    
-    # Process each example in the dataset.
+    visualization_candidates = []  # (candidate, trace_of_nodes, score, idx_to_symbol)
+
     for idx, item in enumerate(dataset):
         try:
-            # Convert idx_to_symbol to a dictionary.
-            if isinstance(item['idx_to_symbol'], list):
-                idx_to_symbol = {i: s for i, s in enumerate(item['idx_to_symbol'])}
-            else:
-                idx_to_symbol = item['idx_to_symbol']
+            idx_to_symbol = {i: s for i, s in enumerate(item['idx_to_symbol'])} if isinstance(item['idx_to_symbol'], list) else item['idx_to_symbol']
             edges = [tuple(e) for e in item['edges']]
             target = item['target']
             root = item['root']
-            
-            # Initialize the world model and search configuration.
             world_model = ProsQAWorldModel(idx_to_symbol=idx_to_symbol, edges=edges, target=target)
             search_config = ProsQASearchConfig(idx_to_symbol=idx_to_symbol, edges=edges, target=target, root=root)
-            
             candidate_states = []
             candidate_scores = []
+            candidate_traces = []
             
-            # Run the search multiple times.
             for run in range(num_runs):
                 random.seed(run)
                 search_algo = MCTS(depth_limit=30, output_trace_in_each_iter=True)
+                print(f"[DEBUG] MCTS attributes: {dir(search_algo)}", flush=True)
                 reasoner = Reasoner(world_model=world_model, search_config=search_config, search_algo=search_algo)
                 initial_state = world_model.init_state()
                 result = reasoner(initial_state)
-                print(f"[DEBUG] Run {run} - Search result attributes:", dir(result))
-                
-                # Use terminal_state or aggregated_result.
-                if hasattr(result, 'terminal_state'):
-                    candidate = result.terminal_state if result.terminal_state is not None else result.aggregated_result
-                    if candidate is not None:
-                        candidate_states.append(candidate)
-                        score = evaluate_state(candidate, idx_to_symbol, target, search_config.distances)
-                        candidate_scores.append(score)
-                        print(f"[DEBUG] Run {run} - Candidate state: {candidate} with score {score}", flush=True)
+                print(f"[DEBUG] Run {run} - Search result attributes: {dir(result)}", flush=True)
+                if hasattr(result, 'terminal_state') and result.terminal_state is not None:
+                    candidate = result.terminal_state
+                    score = evaluate_state(candidate, idx_to_symbol, target, search_config.distances)
+                    candidate_states.append(candidate)
+                    candidate_scores.append(score)
+                    # Retrieve the trace from the result
+                    trace_nodes = result.trace_of_nodes if hasattr(result, 'trace_of_nodes') and result.trace_of_nodes else []
+                    candidate_traces.append(trace_nodes)
+                    print(f"[DEBUG] Run {run} - Candidate state: {candidate} with score {score}", flush=True)
                 else:
-                    logging.error("Result object lacks terminal_state attribute.")
+                    logging.error(f"Item {idx}, run {run}: No terminal_state in result.")
+                    candidate_states.append(None)
+                    candidate_scores.append(float('-inf'))
+                    candidate_traces.append([])
             
-            # Select the best candidate from the ensemble.
-            if candidate_states:
-                best_idx = candidate_scores.index(max(candidate_scores))
+            if candidate_states and any(s is not None for s in candidate_states):
+                best_idx = max(range(len(candidate_scores)), key=lambda i: candidate_scores[i])
                 best_candidate = candidate_states[best_idx]
                 best_score = candidate_scores[best_idx]
+                best_trace = candidate_traces[best_idx]
                 print(f"[DEBUG] Best candidate from ensemble: {best_candidate} with score {best_score}", flush=True)
             else:
                 best_candidate = None
+                best_trace = []
             
-            # Determine success based on final node or global evaluation score.
             if best_candidate is not None:
-                state_score = evaluate_state(best_candidate, idx_to_symbol, target, search_config.distances)
-                logging.info(f"[DEBUG] Global evaluation score for best candidate: {state_score}")
-                success = (best_candidate['current_node'] == target) or (state_score > evaluation_threshold)
+                final_eval = evaluate_state(best_candidate, idx_to_symbol, target, search_config.distances)
+                logging.info(f"[DEBUG] Global evaluation score for best candidate: {final_eval}")
+                success = (best_candidate['current_node'] == target) or (final_eval > evaluation_threshold)
             else:
                 success = False
-            
             successes.append(success)
             logging.info(f"Item {idx}: {'SUCCESS' if success else 'FAILURE'}")
             
-            # Visualize the search tree for the first successful item.
-            if success and idx == 0:
-                search_tree = search_algo.tree
-                nodes_vis = []
-                edges_vis = []
-                node_map = {}
-                for i, node in enumerate(search_tree.nodes):
-                    node_map[node] = i
-                    if node.state and node.state['current_node'] is not None:
-                        label = idx_to_symbol.get(node.state['current_node'], "Unknown")
-                    else:
-                        label = "Start"
-                    nodes_vis.append(TreeSnapshot.Node(id=i, data={"label": label}))
-                edge_counter = 0
-                for node in search_tree.nodes:
-                    if node.parent and node.parent in node_map:
-                        src_idx = node_map[node.parent]
-                        tgt_idx = node_map[node]
-                        src_node = node.parent.state['current_node'] if node.parent.state else None
-                        tgt_node = node.state['current_node'] if node.state else None
-                        src_label = idx_to_symbol.get(src_node, "Start")
-                        tgt_label = idx_to_symbol.get(tgt_node, "?")
-                        action_str = f"{src_label}→{tgt_label}"
-                        edges_vis.append(TreeSnapshot.Edge(
-                            id=edge_counter,
-                            source=src_idx,
-                            target=tgt_idx,
-                            data={"action": action_str}
-                        ))
-                        edge_counter += 1
-                snapshot = TreeSnapshot(nodes_vis, edges_vis)
-                snapshot_path = os.path.join(output_dir, "search_tree_visualization.json")
-                snapshot.save(snapshot_path)
-                print(f"[DEBUG] Saved search tree visualization to {snapshot_path}", flush=True)
-                
+            if best_trace and len(best_trace) > 0:
+                visualization_candidates.append((best_candidate, best_trace, best_score, idx_to_symbol))
+            
         except Exception as e:
             logging.error(f"Item {idx} ERROR: {str(e)}")
             successes.append(False)
     
-    # Compute overall accuracy.
-    accuracy = sum(successes) / len(successes) if dataset else 0
+    if visualization_candidates:
+        best_overall = max(visualization_candidates, key=lambda tup: tup[2])
+        candidate, trace, score, best_idx_to_symbol = best_overall
+        logging.info(f"[INFO] Visualizing candidate with score: {score}")
+        node_map = {}
+        nodes_vis = []
+        edges_vis = []
+        for i, node in enumerate(trace):
+            node_map[node] = i
+            if node.state and node.state.get('current_node') is not None:
+                label = best_idx_to_symbol.get(node.state['current_node'], "Unknown")
+            else:
+                label = "Start"
+            nodes_vis.append(TreeSnapshot.Node(id=i, data={"label": label}))
+        edge_id = 0
+        for node in trace:
+            if hasattr(node, 'parent') and node.parent in node_map:
+                src_idx = node_map[node.parent]
+                tgt_idx = node_map[node]
+                src_node = node.parent.state.get('current_node') if node.parent.state else None
+                tgt_node = node.state.get('current_node') if node.state else None
+                src_label = best_idx_to_symbol.get(src_node, "Start")
+                tgt_label = best_idx_to_symbol.get(tgt_node, "?")
+                action_str = f"{src_label}→{tgt_label}"
+                edges_vis.append(TreeSnapshot.Edge(
+                    id=edge_id,
+                    source=src_idx,
+                    target=tgt_idx,
+                    data={"action": action_str}
+                ))
+                edge_id += 1
+        snapshot = TreeSnapshot(nodes_vis, edges_vis)
+        snapshot_path = os.path.join(output_dir, "search_tree_visualization.json")
+        try:
+            save_snapshot(snapshot, snapshot_path)
+        except Exception as e:
+            logging.error(f"[ERROR] Could not save visualization: {str(e)}")
+            print("[ERROR] Visualization saving failed.", flush=True)
+    else:
+        logging.error("[ERROR] No candidate with a nonempty search trace was found for visualization.")
+        print("[ERROR] No candidate available for visualization.", flush=True)
+    
+    accuracy = sum(successes) / len(successes) if len(dataset) > 0 else 0
     logging.info(f"FINAL ACCURACY: {accuracy:.1%}")
     return accuracy
 
@@ -367,7 +302,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python run_tot.py <dataset_path> [output_dir]")
         sys.exit(1)
-    
     dataset_path = sys.argv[1]
     output_dir = sys.argv[2] if len(sys.argv) > 2 else "results"
     final_accuracy = evaluate(dataset_path, output_dir)

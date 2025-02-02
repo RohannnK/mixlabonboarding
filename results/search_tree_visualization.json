@@ -1,0 +1,21 @@
+{
+  "nodes": {
+    "0": "TreeSnapshot.Node(id=0, data={'label': 'Start'}, selected_edge=None)",
+    "1": "TreeSnapshot.Node(id=1, data={'label': 'boompus'}, selected_edge=None)",
+    "2": "TreeSnapshot.Node(id=2, data={'label': 'lempus'}, selected_edge=None)",
+    "3": "TreeSnapshot.Node(id=3, data={'label': 'yerpus'}, selected_edge=None)",
+    "4": "TreeSnapshot.Node(id=4, data={'label': 'terpus'}, selected_edge=None)",
+    "5": "TreeSnapshot.Node(id=5, data={'label': 'rorpus'}, selected_edge=None)",
+    "6": "TreeSnapshot.Node(id=6, data={'label': 'scrompus'}, selected_edge=None)",
+    "7": "TreeSnapshot.Node(id=7, data={'label': 'storpus'}, selected_edge=None)"
+  },
+  "edges": {
+    "0": "TreeSnapshot.Edge(id=0, source=0, target=1, data={'action': 'Start\u2192boompus'})",
+    "1": "TreeSnapshot.Edge(id=1, source=1, target=2, data={'action': 'boompus\u2192lempus'})",
+    "2": "TreeSnapshot.Edge(id=2, source=2, target=3, data={'action': 'lempus\u2192yerpus'})",
+    "3": "TreeSnapshot.Edge(id=3, source=3, target=4, data={'action': 'yerpus\u2192terpus'})",
+    "4": "TreeSnapshot.Edge(id=4, source=4, target=5, data={'action': 'terpus\u2192rorpus'})",
+    "5": "TreeSnapshot.Edge(id=5, source=5, target=6, data={'action': 'rorpus\u2192scrompus'})",
+    "6": "TreeSnapshot.Edge(id=6, source=6, target=7, data={'action': 'scrompus\u2192storpus'})"
+  }
+}
