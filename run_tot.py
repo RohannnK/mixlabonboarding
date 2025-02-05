@@ -1,10 +1,16 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
 import sys
 import json
 import logging
 import random
+import time
 from collections import deque, defaultdict
 from copy import deepcopy
+import google.generativeai as genai
+
 from reasoners import WorldModel, SearchConfig, Reasoner
 from reasoners.algorithm import MCTS, MCTSResult, MCTSNode
 from reasoners.visualization import TreeSnapshot
@@ -26,7 +32,65 @@ logging.basicConfig(
 logging.info("Starting Task 2 Execution with Tree of Thoughts...")
 
 ###############################################################################
-# Helper Functions: LLM Feedback, Similarity, Graph Distances, Evaluation
+# Gemini Initialization and LLM-based Reward Model
+
+def _initialize_gemini():
+    """
+    Configure Gemini API client using the API key from the environment.
+    This uses the same API syntax as Task 1.
+    """
+    genai.configure(api_key=os.getenv("GOOGLE_GEMINI_API_KEY"))
+    # Use the model name from your configuration; here we assume "gemini-pro"
+    return genai.GenerativeModel("gemini-pro")
+
+def llm_reward_model(state, target, gemini_model):
+    """
+    Use Gemini to evaluate whether the current reasoning state is legal.
+    If the state is terminal, also check whether it matches the target answer.
+    
+    The prompt instructs Gemini to return a JSON object with:
+      {"legal": true/false, "matches_target": true/false}
+    
+    Returns:
+      +1 if legal and (if terminal) matches target,
+      -1 if not legal,
+      0.1 otherwise.
+    """
+    prompt = f"""
+You are a logical evaluator. Given the current reasoning state:
+{json.dumps(state, indent=2)}
+and the target: {target},
+determine whether the output is logically valid and adheres to the given premises.
+If this is a terminal state, also check whether the output matches the target answer exactly.
+Return a JSON object with:
+    "legal": true or false,
+    "matches_target": true or false.
+"""
+    try:
+        config = genai.types.GenerationConfig(
+            temperature=0.0,
+            max_output_tokens=100,
+            top_p=1.0
+        )
+        # Use generate_content to call Gemini.
+        response = gemini_model.generate_content(prompt, generation_config=config)
+        result = json.loads(response.text)
+    except Exception as e:
+        print("[ERROR] Failed to call or parse Gemini response:", e, flush=True)
+        return -1  # default penalty if Gemini call fails
+
+    legal = result.get("legal", False)
+    matches_target = result.get("matches_target", False)
+    
+    if not legal:
+        return -1
+    elif matches_target:
+        return 1
+    else:
+        return 0.1
+
+###############################################################################
+# Helper Functions: Heuristic Components
 
 def simulated_llm_feedback(chain):
     """Return bonus of 0.05 per step in the chain."""
@@ -67,7 +131,10 @@ def compute_reverse_distances(edges, target):
 
 def evaluate_state(state, idx_to_symbol, target, distances):
     """
-    Compute an evaluation score for a candidate state from chain length, similarity, and graph distance.
+    Compute an evaluation score for a candidate state based on:
+      - Chain length bonus (simulated_llm_feedback),
+      - Similarity bonus,
+      - Graph distance bonus.
     """
     chain = state['path']
     base_bonus = simulated_llm_feedback(chain)
@@ -118,13 +185,15 @@ class ProsQASearchConfig(SearchConfig):
     """
     Defines available actions and computes reward.
     """
-    def __init__(self, idx_to_symbol, edges, target, root):
+    def __init__(self, idx_to_symbol, edges, target, root, world_model):
         super().__init__()
         self.idx_to_symbol = idx_to_symbol
         self.edges = [tuple(e) for e in edges]
         self.target = target
         self.root = root
         self.distances = compute_reverse_distances(self.edges, target)
+        self.world_model = world_model  # Store the world model instance.
+        self.gemini_model = _initialize_gemini()  # Initialize Gemini
 
     def get_actions(self, state):
         current = state['current_node'] if state['current_node'] is not None else self.root
@@ -133,39 +202,26 @@ class ProsQASearchConfig(SearchConfig):
         return actions
 
     def reward(self, state, action):
-        valid = (action in self.edges)
-        next_node = action[1]
-        terminal = (next_node == self.target)
-        chain = state['path'] + [tuple(action)]
-        base_bonus = simulated_llm_feedback(chain)
-        current_sym = self.idx_to_symbol.get(next_node, "")
-        target_sym = self.idx_to_symbol.get(self.target, "")
-        sim_bonus = similarity_bonus(current_sym, target_sym)
-        current_node = state['current_node'] if state['current_node'] is not None else self.root
-        old_dist = self.distances.get(current_node, float('inf'))
-        new_dist = self.distances.get(next_node, float('inf'))
-        dist_improvement = old_dist - new_dist if old_dist != float('inf') and new_dist != float('inf') else 0
-        dist_bonus = 0.2 * dist_improvement
-        total_bonus = base_bonus + sim_bonus + dist_bonus
-        if terminal:
-            r = 1.0 + total_bonus
-        elif not valid:
-            r = 0.1
+        next_state, _ = self.world_model.step(state, action)
+        terminal = self.world_model.is_terminal(next_state)
+        # To reduce API calls, use heuristic reward for non-terminal states.
+        if not terminal:
+            heuristic_reward = evaluate_state(next_state, self.idx_to_symbol, self.target, self.distances)
+            print(f"[DEBUG] Using heuristic reward for non-terminal state: {heuristic_reward}", flush=True)
+            return heuristic_reward, {'legal': True, 'terminal': terminal}
         else:
-            next_state = {'current_node': next_node, 'path': chain}
-            actions_next = self.get_actions(next_state)
-            r = -0.3 if len(actions_next) == 0 else 0.7 + total_bonus
-        print(f"[DEBUG] Reward for state {state} and action {action}: {r}", flush=True)
-        return r, {'valid': valid, 'terminal': terminal}
+            # For terminal states, prompt Gemini to check legality and target match.
+            llm_reward = llm_reward_model(next_state, self.target, self.gemini_model)
+            print(f"[DEBUG] Using LLM reward for terminal state: {llm_reward}", flush=True)
+            return llm_reward, {'legal': llm_reward > 0, 'terminal': terminal}
 
 ###############################################################################
 # Custom Save Function for TreeSnapshot
 
 def save_snapshot(snapshot, file_path):
     """
-    Save the TreeSnapshot to a JSON file using its custom __dict__() method.
+    Save the TreeSnapshot to a JSON file using its __dict__() method.
     """
-    # TreeSnapshot defines a __dict__() method that returns a dictionary
     data = snapshot.__dict__()
     with open(file_path, "w") as f:
         json.dump(data, f, default=str, indent=2)
@@ -178,7 +234,7 @@ def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshol
     """
     For each example:
       - Run the search num_runs times.
-      - Collect candidate states along with their search trace (result.trace_of_nodes) and score.
+      - Collect candidate states along with their search trace and score.
       - Choose the candidate with the highest score (with a nonempty trace).
       - Build a visualization from that candidate's trace.
     """
@@ -186,7 +242,7 @@ def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshol
     with open(dataset_path, "r") as f:
         dataset = json.load(f)
     successes = []
-    visualization_candidates = []  # (candidate, trace_of_nodes, score, idx_to_symbol)
+    visualization_candidates = []  # (candidate, trace, score, idx_to_symbol)
 
     for idx, item in enumerate(dataset):
         try:
@@ -195,11 +251,11 @@ def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshol
             target = item['target']
             root = item['root']
             world_model = ProsQAWorldModel(idx_to_symbol=idx_to_symbol, edges=edges, target=target)
-            search_config = ProsQASearchConfig(idx_to_symbol=idx_to_symbol, edges=edges, target=target, root=root)
+            search_config = ProsQASearchConfig(idx_to_symbol=idx_to_symbol, edges=edges, target=target, root=root, world_model=world_model)
             candidate_states = []
             candidate_scores = []
             candidate_traces = []
-            
+
             for run in range(num_runs):
                 random.seed(run)
                 search_algo = MCTS(depth_limit=30, output_trace_in_each_iter=True)
@@ -213,7 +269,6 @@ def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshol
                     score = evaluate_state(candidate, idx_to_symbol, target, search_config.distances)
                     candidate_states.append(candidate)
                     candidate_scores.append(score)
-                    # Retrieve the trace from the result
                     trace_nodes = result.trace_of_nodes if hasattr(result, 'trace_of_nodes') and result.trace_of_nodes else []
                     candidate_traces.append(trace_nodes)
                     print(f"[DEBUG] Run {run} - Candidate state: {candidate} with score {score}", flush=True)
@@ -222,7 +277,7 @@ def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshol
                     candidate_states.append(None)
                     candidate_scores.append(float('-inf'))
                     candidate_traces.append([])
-            
+
             if candidate_states and any(s is not None for s in candidate_states):
                 best_idx = max(range(len(candidate_scores)), key=lambda i: candidate_scores[i])
                 best_candidate = candidate_states[best_idx]
@@ -232,7 +287,7 @@ def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshol
             else:
                 best_candidate = None
                 best_trace = []
-            
+
             if best_candidate is not None:
                 final_eval = evaluate_state(best_candidate, idx_to_symbol, target, search_config.distances)
                 logging.info(f"[DEBUG] Global evaluation score for best candidate: {final_eval}")
@@ -241,14 +296,14 @@ def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshol
                 success = False
             successes.append(success)
             logging.info(f"Item {idx}: {'SUCCESS' if success else 'FAILURE'}")
-            
+
             if best_trace and len(best_trace) > 0:
                 visualization_candidates.append((best_candidate, best_trace, best_score, idx_to_symbol))
-            
+
         except Exception as e:
             logging.error(f"Item {idx} ERROR: {str(e)}")
             successes.append(False)
-    
+
     if visualization_candidates:
         best_overall = max(visualization_candidates, key=lambda tup: tup[2])
         candidate, trace, score, best_idx_to_symbol = best_overall
@@ -290,7 +345,7 @@ def evaluate(dataset_path, output_dir="results", num_runs=3, evaluation_threshol
     else:
         logging.error("[ERROR] No candidate with a nonempty search trace was found for visualization.")
         print("[ERROR] No candidate available for visualization.", flush=True)
-    
+
     accuracy = sum(successes) / len(successes) if len(dataset) > 0 else 0
     logging.info(f"FINAL ACCURACY: {accuracy:.1%}")
     return accuracy
